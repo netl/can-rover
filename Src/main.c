@@ -47,7 +47,7 @@ CAN_HandleTypeDef hcan;
 TIM_HandleTypeDef htim1;
 
 /* USER CODE BEGIN PV */
-
+CAN_TxHeaderTypeDef txHeader;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -98,12 +98,53 @@ int main(void)
   MX_TIM1_Init();
   /* USER CODE BEGIN 2 */
 
+    HAL_CAN_Start(&hcan);
+  txHeader.DLC = 8;
+  txHeader.IDE = CAN_ID_STD;
+  txHeader.RTR = CAN_RTR_DATA;
+  txHeader.StdId = 0x030;
+  txHeader.ExtId = 0x02;
+  txHeader.TransmitGlobalTime = DISABLE;
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+  uint32_t txMailbox;
   while (1)
   {
+    HAL_GPIO_WritePin(status_GPIO_Port, status_Pin, GPIO_PIN_SET);
+	// transmit
+	if (HAL_CAN_GetTxMailboxesFreeLevel(&hcan) > 0){
+	    //CAN_TxHeaderTypedef txHeader;
+		uint8_t data[] = {0xa,0xf};
+		HAL_CAN_AddTxMessage(&hcan, &txHeader, data, &txMailbox);
+	}
+
+	//receive
+    /*
+	uint8_t data[8];
+	CAN_RxHeaderTypeDef rxHeader;
+	while (HAL_CAN_GetRxFifoFillLevel(&hcan, CAN_RX_FIFO0)){
+		HAL_CAN_GetRxMessage(&hcan, CAN_RX_FIFO0, &rxHeader, data);
+	   
+		//channel = rxId - BASE_ADRESS;
+
+		// check that channel is valid
+		//if ( channel > 3 ) 
+		//	return 1;
+
+		// check that data is within range
+		//if ( rxData > SERVO_RESOLUTION )
+		//	 return 2;
+
+		// translate given value to servo pwm
+		//pwmValue = ( PWM_MIN + PWM_RANGE * rxData/SERVO_RESOLUTION ) / PWM_PERIOD;
+
+		// set pwm
+		//pwm( channel, pwmValue );
+	}*/
+    HAL_GPIO_WritePin(status_GPIO_Port, status_Pin, GPIO_PIN_RESET);
+    HAL_Delay(1000);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -217,10 +258,10 @@ static void MX_CAN_Init(void)
 
   /* USER CODE END CAN_Init 1 */
   hcan.Instance = CAN1;
-  hcan.Init.Prescaler = 16;
+  hcan.Init.Prescaler = 4;
   hcan.Init.Mode = CAN_MODE_NORMAL;
   hcan.Init.SyncJumpWidth = CAN_SJW_1TQ;
-  hcan.Init.TimeSeg1 = CAN_BS1_1TQ;
+  hcan.Init.TimeSeg1 = CAN_BS1_2TQ;
   hcan.Init.TimeSeg2 = CAN_BS2_1TQ;
   hcan.Init.TimeTriggeredMode = DISABLE;
   hcan.Init.AutoBusOff = DISABLE;
@@ -322,12 +363,23 @@ static void MX_TIM1_Init(void)
   */
 static void MX_GPIO_Init(void)
 {
+  GPIO_InitTypeDef GPIO_InitStruct = {0};
 /* USER CODE BEGIN MX_GPIO_Init_1 */
 /* USER CODE END MX_GPIO_Init_1 */
 
   /* GPIO Ports Clock Enable */
   __HAL_RCC_GPIOA_CLK_ENABLE();
   __HAL_RCC_GPIOB_CLK_ENABLE();
+
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(status_GPIO_Port, status_Pin, GPIO_PIN_RESET);
+
+  /*Configure GPIO pin : status_Pin */
+  GPIO_InitStruct.Pin = status_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(status_GPIO_Port, &GPIO_InitStruct);
 
 /* USER CODE BEGIN MX_GPIO_Init_2 */
 /* USER CODE END MX_GPIO_Init_2 */
