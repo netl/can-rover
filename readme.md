@@ -6,3 +6,6 @@ file build/crawler-servo.elf
 TUI: c-x c-a
 list
 ```
+
+# canbus
+`sudo ip link set up can0 type can bitrate 500000`
