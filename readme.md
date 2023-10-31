@@ -1,3 +1,7 @@
+# jlink
+`JLinkGDBServer -device stm32f103c8`
+
+# gdb
 ```
 arm-none-eabi-gdb
 target remote localhost:2331
