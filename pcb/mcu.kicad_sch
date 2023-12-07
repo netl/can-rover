@@ -106,6 +106,10 @@
     (uuid 6cd660c2-6f6a-4209-8e01-37a1c867dd68)
   )
 
+  (hierarchical_label "status" (shape output) (at 177.8 86.36 0) (fields_autoplaced)
+    (effects (font (size 1.27 1.27)) (justify left))
+    (uuid 26c861b4-cac9-4c48-855e-092d8d6c3532)
+  )
   (hierarchical_label "CH5" (shape output) (at 177.8 104.14 0) (fields_autoplaced)
     (effects (font (size 1.27 1.27)) (justify left))
     (uuid 29c272a1-3ffd-4227-aba9-597d7c1ed1c5)
