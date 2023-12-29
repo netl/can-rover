@@ -6,6 +6,8 @@
 arm-none-eabi-gdb / gdb-multiarch
 file build/crawler-servo.elf
 target remote localhost:2331
+monitor reset
+load
 break main
 continue
 TUI: c-x c-a
