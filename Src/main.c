@@ -47,7 +47,11 @@ CAN_HandleTypeDef hcan;
 TIM_HandleTypeDef htim1;
 
 /* USER CODE BEGIN PV */
-CAN_TxHeaderTypeDef txHeader;
+CAN_RxHeaderTypeDef rxHeader; //CAN Bus Transmit Header
+CAN_TxHeaderTypeDef txHeader; //CAN Bus Receive Header
+uint8_t canRX[8] = {0,0,0,0,0,0,0,0};  //CAN Bus Receive Buffer
+CAN_FilterTypeDef canfil; //CAN Bus Filter
+uint32_t canMailbox; //CAN Bus Mail box variable
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -98,13 +102,27 @@ int main(void)
   MX_TIM1_Init();
   /* USER CODE BEGIN 2 */
 
-    HAL_CAN_Start(&hcan);
+    //HAL_CAN_Start(&hcan);
   txHeader.DLC = 8;
   txHeader.IDE = CAN_ID_STD;
   txHeader.RTR = CAN_RTR_DATA;
   txHeader.StdId = 0x030;
   txHeader.ExtId = 0x02;
   txHeader.TransmitGlobalTime = DISABLE;
+
+  canfil.FilterBank = 0;
+  canfil.FilterMode = CAN_FILTERMODE_IDMASK;
+  canfil.FilterFIFOAssignment = CAN_RX_FIFO0;
+  canfil.FilterIdHigh = 0;
+  canfil.FilterIdLow = 0;
+  canfil.FilterMaskIdHigh = 0;
+  canfil.FilterMaskIdLow = 0;
+  canfil.FilterScale = CAN_FILTERSCALE_32BIT;
+  canfil.FilterActivation = ENABLE;
+  canfil.SlaveStartFilterBank = 14;
+  HAL_CAN_ConfigFilter(&hcan,&canfil); //Initialize CAN Filter
+  HAL_CAN_Start(&hcan); //Initialize CAN Bus
+  HAL_CAN_ActivateNotification(&hcan,CAN_IT_RX_FIFO0_MSG_PENDING);// Initialize CAN Bus Rx Interrupt
 
   //TIM1->CCR1 = 30;
   HAL_TIM_Base_Start_IT(&htim1);
@@ -403,6 +421,12 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
+L_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan1)
+{
+    HAL_GPIO_WritePin(status_GPIO_Port, status_Pin, GPIO_PIN_SET);
+	HAL_CAN_GetRxMessage(hcan1, CAN_RX_FIFO0, &rxHeader, canRX); //Receive CAN bus message to canRX buffer
+
+}
 
 /* USER CODE END 4 */
 

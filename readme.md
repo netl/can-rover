@@ -3,12 +3,15 @@
 
 # gdb
 ```
-arm-none-eabi-gdb
-target remote localhost:2331
-exec build/crawler-servo.elf
+arm-none-eabi-gdb / gdb-multiarch
 file build/crawler-servo.elf
+target remote localhost:2331
+break main
+continue
 TUI: c-x c-a
+
 list
+exec build/crawler-servo.elf
 ```
 
 # canbus
