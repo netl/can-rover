@@ -4,6 +4,13 @@
 
   (paper "A4")
 
+  (title_block
+    (title "CAN bus to RC servo adapter")
+    (date "2024-01-10")
+    (rev "0")
+    (comment 1 "Microcontroller and programming headers")
+  )
+
   (lib_symbols
     (symbol "MCU:STM32f103C8T" (in_bom yes) (on_board yes)
       (property "Reference" "IC?" (at 0 35.56 0)
