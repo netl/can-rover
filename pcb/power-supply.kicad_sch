@@ -6,7 +6,7 @@
 
   (title_block
     (title "CAN bus to RC servo adapter")
-    (date "2024-01-10")
+    (date "2024-01-14")
     (rev "0")
     (comment 1 "Battery Monitoring")
     (comment 2 "5 V Power supply")
@@ -862,7 +862,7 @@
   (symbol (lib_id "generic:GND") (at 223.52 109.22 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 0d2ad8e9-ab94-462b-bccd-6726a4a2ea16)
-    (property "Reference" "GND04" (at 227.33 107.95 0)
+    (property "Reference" "#GND04" (at 227.33 107.95 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 227.33 109.22 0)
@@ -878,7 +878,7 @@
     (instances
       (project "pcb"
         (path "/6bb3bad6-1a89-4624-b34d-6ddda7dd16d2/bd5ce3a2-965f-4825-a529-9d15232fee93"
-          (reference "GND04") (unit 1)
+          (reference "#GND04") (unit 1)
         )
       )
     )
@@ -887,7 +887,7 @@
   (symbol (lib_id "generic:GND") (at 83.82 124.46 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 0fddd0ed-f101-4589-87fd-89bf076cbc59)
-    (property "Reference" "GND027" (at 87.63 123.19 0)
+    (property "Reference" "#GND027" (at 87.63 123.19 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 87.63 124.46 0)
@@ -903,7 +903,7 @@
     (instances
       (project "pcb"
         (path "/6bb3bad6-1a89-4624-b34d-6ddda7dd16d2/bd5ce3a2-965f-4825-a529-9d15232fee93"
-          (reference "GND027") (unit 1)
+          (reference "#GND027") (unit 1)
         )
       )
     )
@@ -912,7 +912,7 @@
   (symbol (lib_id "generic:GND") (at 33.02 114.3 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 16c7353e-dca8-487f-b766-7e027bd59256)
-    (property "Reference" "GND02" (at 36.83 113.03 0)
+    (property "Reference" "#GND032" (at 36.83 113.03 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 36.83 114.3 0)
@@ -928,7 +928,7 @@
     (instances
       (project "pcb"
         (path "/6bb3bad6-1a89-4624-b34d-6ddda7dd16d2/bd5ce3a2-965f-4825-a529-9d15232fee93"
-          (reference "GND02") (unit 1)
+          (reference "#GND032") (unit 1)
         )
       )
     )
@@ -1039,7 +1039,7 @@
   (symbol (lib_id "generic:5V") (at 200.66 96.52 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 26c6998e-5f1d-401c-94fc-9ea57355aed2)
-    (property "Reference" "5V01" (at 204.47 95.25 0)
+    (property "Reference" "#5V01" (at 204.47 95.25 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "5V" (at 200.66 93.98 0)
@@ -1055,7 +1055,7 @@
     (instances
       (project "pcb"
         (path "/6bb3bad6-1a89-4624-b34d-6ddda7dd16d2/bd5ce3a2-965f-4825-a529-9d15232fee93"
-          (reference "5V01") (unit 1)
+          (reference "#5V01") (unit 1)
         )
       )
     )
@@ -1122,7 +1122,7 @@
   (symbol (lib_id "generic:3V3") (at 83.82 104.14 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 370b3d28-7352-4c24-b7fc-9a8a69726924)
-    (property "Reference" "3V07" (at 87.63 102.87 0)
+    (property "Reference" "#3V07" (at 87.63 102.87 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "3V3" (at 83.82 101.6 0)
@@ -1138,7 +1138,7 @@
     (instances
       (project "pcb"
         (path "/6bb3bad6-1a89-4624-b34d-6ddda7dd16d2/bd5ce3a2-965f-4825-a529-9d15232fee93"
-          (reference "3V07") (unit 1)
+          (reference "#3V07") (unit 1)
         )
       )
     )
@@ -1173,7 +1173,7 @@
   (symbol (lib_id "generic:GND") (at 233.68 111.76 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 3d2e0bb5-935a-4386-b22f-5097b13c5876)
-    (property "Reference" "GND03" (at 237.49 110.49 0)
+    (property "Reference" "#GND033" (at 237.49 110.49 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 237.49 111.76 0)
@@ -1189,7 +1189,7 @@
     (instances
       (project "pcb"
         (path "/6bb3bad6-1a89-4624-b34d-6ddda7dd16d2/bd5ce3a2-965f-4825-a529-9d15232fee93"
-          (reference "GND03") (unit 1)
+          (reference "#GND033") (unit 1)
         )
       )
     )
@@ -1361,7 +1361,7 @@
   (symbol (lib_id "generic:GND") (at 40.64 114.3 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 6e0df001-37ea-4075-be17-1a4781cd1882)
-    (property "Reference" "GND06" (at 44.45 113.03 0)
+    (property "Reference" "#GND06" (at 44.45 113.03 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 44.45 114.3 0)
@@ -1377,7 +1377,7 @@
     (instances
       (project "pcb"
         (path "/6bb3bad6-1a89-4624-b34d-6ddda7dd16d2/bd5ce3a2-965f-4825-a529-9d15232fee93"
-          (reference "GND06") (unit 1)
+          (reference "#GND06") (unit 1)
         )
       )
     )
@@ -1450,7 +1450,7 @@
   (symbol (lib_id "generic:GND") (at 185.42 119.38 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 7a8d86c9-ec95-43f6-87a1-50c67c44cb1c)
-    (property "Reference" "GND012" (at 189.23 118.11 0)
+    (property "Reference" "#GND012" (at 189.23 118.11 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 189.23 119.38 0)
@@ -1466,7 +1466,7 @@
     (instances
       (project "pcb"
         (path "/6bb3bad6-1a89-4624-b34d-6ddda7dd16d2/bd5ce3a2-965f-4825-a529-9d15232fee93"
-          (reference "GND012") (unit 1)
+          (reference "#GND012") (unit 1)
         )
       )
     )
@@ -1507,7 +1507,7 @@
   (symbol (lib_id "generic:GND") (at 261.62 111.76 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 8046fc18-4eec-488b-b829-8e1f9fafbbce)
-    (property "Reference" "GND05" (at 265.43 110.49 0)
+    (property "Reference" "#GND05" (at 265.43 110.49 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 265.43 111.76 0)
@@ -1523,7 +1523,7 @@
     (instances
       (project "pcb"
         (path "/6bb3bad6-1a89-4624-b34d-6ddda7dd16d2/bd5ce3a2-965f-4825-a529-9d15232fee93"
-          (reference "GND05") (unit 1)
+          (reference "#GND05") (unit 1)
         )
       )
     )
@@ -1532,7 +1532,7 @@
   (symbol (lib_id "generic:GND") (at 193.04 119.38 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 859f04de-1164-4af4-960c-53709db046a7)
-    (property "Reference" "GND013" (at 196.85 118.11 0)
+    (property "Reference" "#GND013" (at 196.85 118.11 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 196.85 119.38 0)
@@ -1548,7 +1548,7 @@
     (instances
       (project "pcb"
         (path "/6bb3bad6-1a89-4624-b34d-6ddda7dd16d2/bd5ce3a2-965f-4825-a529-9d15232fee93"
-          (reference "GND013") (unit 1)
+          (reference "#GND013") (unit 1)
         )
       )
     )
@@ -1557,7 +1557,7 @@
   (symbol (lib_id "generic:GND") (at 58.42 127 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 876e6729-215a-4a98-9371-bca80fbbabc2)
-    (property "Reference" "GND011" (at 62.23 125.73 0)
+    (property "Reference" "#GND011" (at 62.23 125.73 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 62.23 127 0)
@@ -1573,7 +1573,7 @@
     (instances
       (project "pcb"
         (path "/6bb3bad6-1a89-4624-b34d-6ddda7dd16d2/bd5ce3a2-965f-4825-a529-9d15232fee93"
-          (reference "GND011") (unit 1)
+          (reference "#GND011") (unit 1)
         )
       )
     )
@@ -1724,7 +1724,7 @@
   (symbol (lib_id "generic:3V3") (at 266.7 96.52 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid b6818485-b700-4036-8adc-852e64bd90b2)
-    (property "Reference" "3V01" (at 270.51 95.25 0)
+    (property "Reference" "#3V01" (at 270.51 95.25 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "3V3" (at 266.7 93.98 0)
@@ -1740,7 +1740,7 @@
     (instances
       (project "pcb"
         (path "/6bb3bad6-1a89-4624-b34d-6ddda7dd16d2/bd5ce3a2-965f-4825-a529-9d15232fee93"
-          (reference "3V01") (unit 1)
+          (reference "#3V01") (unit 1)
         )
       )
     )
@@ -1749,7 +1749,7 @@
   (symbol (lib_id "generic:GND") (at 101.6 124.46 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid beb6bcc0-779a-44ab-b339-5c08ac1130b8)
-    (property "Reference" "GND028" (at 105.41 123.19 0)
+    (property "Reference" "#GND028" (at 105.41 123.19 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 105.41 124.46 0)
@@ -1765,7 +1765,7 @@
     (instances
       (project "pcb"
         (path "/6bb3bad6-1a89-4624-b34d-6ddda7dd16d2/bd5ce3a2-965f-4825-a529-9d15232fee93"
-          (reference "GND028") (unit 1)
+          (reference "#GND028") (unit 1)
         )
       )
     )
@@ -1800,7 +1800,7 @@
   (symbol (lib_id "generic:3V3") (at 58.42 106.68 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid c9811d4f-ae5a-4fda-8282-ed5bc4eb1763)
-    (property "Reference" "3V03" (at 62.23 105.41 0)
+    (property "Reference" "#3V03" (at 62.23 105.41 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "3V3" (at 58.42 104.14 0)
@@ -1816,7 +1816,7 @@
     (instances
       (project "pcb"
         (path "/6bb3bad6-1a89-4624-b34d-6ddda7dd16d2/bd5ce3a2-965f-4825-a529-9d15232fee93"
-          (reference "3V03") (unit 1)
+          (reference "#3V03") (unit 1)
         )
       )
     )
@@ -1890,7 +1890,7 @@
   (symbol (lib_id "generic:GND") (at 200.66 119.38 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid d87444ee-5194-482b-8844-d67ed3f915ed)
-    (property "Reference" "GND014" (at 204.47 118.11 0)
+    (property "Reference" "#GND014" (at 204.47 118.11 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 204.47 119.38 0)
@@ -1906,7 +1906,7 @@
     (instances
       (project "pcb"
         (path "/6bb3bad6-1a89-4624-b34d-6ddda7dd16d2/bd5ce3a2-965f-4825-a529-9d15232fee93"
-          (reference "GND014") (unit 1)
+          (reference "#GND014") (unit 1)
         )
       )
     )
@@ -1915,7 +1915,7 @@
   (symbol (lib_id "generic:GND") (at 124.46 106.68 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid d9a0d77c-b1e2-478f-a0a2-cb0b25d45d25)
-    (property "Reference" "GND015" (at 128.27 105.41 0)
+    (property "Reference" "#GND015" (at 128.27 105.41 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 128.27 106.68 0)
@@ -1931,7 +1931,7 @@
     (instances
       (project "pcb"
         (path "/6bb3bad6-1a89-4624-b34d-6ddda7dd16d2/bd5ce3a2-965f-4825-a529-9d15232fee93"
-          (reference "GND015") (unit 1)
+          (reference "#GND015") (unit 1)
         )
       )
     )
@@ -1940,7 +1940,7 @@
   (symbol (lib_id "generic:GND") (at 132.08 106.68 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid f407f8e1-a696-4be4-8252-5ab3eed7010d)
-    (property "Reference" "GND018" (at 135.89 105.41 0)
+    (property "Reference" "#GND018" (at 135.89 105.41 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 135.89 106.68 0)
@@ -1956,7 +1956,7 @@
     (instances
       (project "pcb"
         (path "/6bb3bad6-1a89-4624-b34d-6ddda7dd16d2/bd5ce3a2-965f-4825-a529-9d15232fee93"
-          (reference "GND018") (unit 1)
+          (reference "#GND018") (unit 1)
         )
       )
     )

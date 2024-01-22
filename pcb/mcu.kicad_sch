@@ -6,7 +6,7 @@
 
   (title_block
     (title "CAN bus to RC servo adapter")
-    (date "2024-01-10")
+    (date "2024-01-14")
     (rev "0")
     (comment 1 "Microcontroller and programming headers")
   )
@@ -227,6 +227,46 @@
         (pin power_in line (at -12.7 7.62 0) (length 2.54)
           (name "VDDA" (effects (font (size 1.27 1.27))))
           (number "9" (effects (font (size 1.27 1.27))))
+        )
+      )
+    )
+    (symbol "PCB:test_point" (pin_numbers hide) (pin_names (offset 0) hide) (in_bom yes) (on_board yes)
+      (property "Reference" "TP" (at 5.08 1.27 0)
+        (effects (font (size 1.27 1.27)))
+      )
+      (property "Value" "test_point" (at 0 2.54 0)
+        (effects (font (size 1.27 1.27)) hide)
+      )
+      (property "Footprint" "PCB:test_point" (at 2.54 -1.27 0)
+        (effects (font (size 1.27 1.27)) hide)
+      )
+      (property "Datasheet" "" (at 0 0 0)
+        (effects (font (size 1.27 1.27)) hide)
+      )
+      (symbol "test_point_0_1"
+        (polyline
+          (pts
+            (xy 0 0)
+            (xy 0 0)
+          )
+          (stroke (width 0) (type solid))
+          (fill (type none))
+        )
+        (polyline
+          (pts
+            (xy 0 0)
+            (xy 2.54 0.635)
+            (xy 1.905 1.905)
+            (xy 0 0)
+          )
+          (stroke (width 0) (type solid))
+          (fill (type none))
+        )
+      )
+      (symbol "test_point_1_1"
+        (pin output line (at 0 0 0) (length 2.54) hide
+          (name "TP" (effects (font (size 1.27 1.27))))
+          (number "1" (effects (font (size 1.27 1.27))))
         )
       )
     )
@@ -1340,6 +1380,31 @@
     (uuid eb89961b-c00b-47a1-b75d-e9a3aa558073)
   )
 
+  (symbol (lib_id "PCB:test_point") (at 160.02 121.92 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid 01a155fe-d843-49c8-a854-6f2ae6c1780c)
+    (property "Reference" "TP6" (at 163.83 121.6025 0)
+      (effects (font (size 1.27 1.27)) (justify left))
+    )
+    (property "Value" "test_point" (at 160.02 119.38 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Footprint" "PCB:test_point" (at 162.56 123.19 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "" (at 160.02 121.92 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid e22009c0-7024-4ed3-b7e8-e99ece8e9401))
+    (instances
+      (project "pcb"
+        (path "/6bb3bad6-1a89-4624-b34d-6ddda7dd16d2/19469851-aeaf-466c-9786-c0d0ae531cf4"
+          (reference "TP6") (unit 1)
+        )
+      )
+    )
+  )
+
   (symbol (lib_name "xtal_gnd_1") (lib_id "generic:xtal_gnd") (at 182.88 78.74 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 071f19f5-d445-4312-ac91-ed549d1d2524)
@@ -1454,6 +1519,31 @@
     )
   )
 
+  (symbol (lib_id "PCB:test_point") (at 160.02 124.46 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid 1527e2fc-41d1-420d-839e-5f66dabf663f)
+    (property "Reference" "TP7" (at 163.83 124.1425 0)
+      (effects (font (size 1.27 1.27)) (justify left))
+    )
+    (property "Value" "test_point" (at 160.02 121.92 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Footprint" "PCB:test_point" (at 162.56 125.73 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "" (at 160.02 124.46 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid 792b1b23-1111-4d80-b079-280df2f86af1))
+    (instances
+      (project "pcb"
+        (path "/6bb3bad6-1a89-4624-b34d-6ddda7dd16d2/19469851-aeaf-466c-9786-c0d0ae531cf4"
+          (reference "TP7") (unit 1)
+        )
+      )
+    )
+  )
+
   (symbol (lib_id "generic:C") (at 187.96 81.28 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 1a0ee691-1a66-4519-978b-5a8e5e04da96)
@@ -1483,10 +1573,35 @@
     )
   )
 
+  (symbol (lib_id "PCB:test_point") (at 160.02 106.68 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid 1ca50379-c7d2-423f-8368-f92f01fb728e)
+    (property "Reference" "TP4" (at 163.83 106.3625 0)
+      (effects (font (size 1.27 1.27)) (justify left))
+    )
+    (property "Value" "test_point" (at 160.02 104.14 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Footprint" "PCB:test_point" (at 162.56 107.95 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "" (at 160.02 106.68 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid 90403a54-3198-463c-a231-aa7e9445d1ff))
+    (instances
+      (project "pcb"
+        (path "/6bb3bad6-1a89-4624-b34d-6ddda7dd16d2/19469851-aeaf-466c-9786-c0d0ae531cf4"
+          (reference "TP4") (unit 1)
+        )
+      )
+    )
+  )
+
   (symbol (lib_id "generic:3V3") (at 73.66 63.5 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 1f7e1199-7c17-4db4-aa13-bbf3cf906d02)
-    (property "Reference" "3V02" (at 77.47 62.23 0)
+    (property "Reference" "#3V02" (at 77.47 62.23 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "3V3" (at 73.66 60.96 0)
@@ -1502,7 +1617,7 @@
     (instances
       (project "pcb"
         (path "/6bb3bad6-1a89-4624-b34d-6ddda7dd16d2/19469851-aeaf-466c-9786-c0d0ae531cf4"
-          (reference "3V02") (unit 1)
+          (reference "#3V02") (unit 1)
         )
       )
     )
@@ -1575,7 +1690,7 @@
     (property "Value" "STM32f103C8T" (at 147.32 63.5 0)
       (effects (font (size 1.27 1.27)))
     )
-    (property "Footprint" "" (at 157.48 66.04 0)
+    (property "Footprint" "QFP:LQFP-48" (at 157.48 66.04 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "https://www.st.com/resource/en/datasheet/stm32f103c8.pdf" (at 157.48 66.04 0)
@@ -1673,10 +1788,35 @@
     )
   )
 
+  (symbol (lib_id "PCB:test_point") (at 160.02 109.22 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid 3ddf570f-0bae-4d22-aab5-7cb7a184e535)
+    (property "Reference" "TP5" (at 163.83 108.9025 0)
+      (effects (font (size 1.27 1.27)) (justify left))
+    )
+    (property "Value" "test_point" (at 160.02 106.68 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Footprint" "PCB:test_point" (at 162.56 110.49 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "" (at 160.02 109.22 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid b2e381af-3247-41d3-a3c1-053c569a56b2))
+    (instances
+      (project "pcb"
+        (path "/6bb3bad6-1a89-4624-b34d-6ddda7dd16d2/19469851-aeaf-466c-9786-c0d0ae531cf4"
+          (reference "TP5") (unit 1)
+        )
+      )
+    )
+  )
+
   (symbol (lib_id "generic:3V3") (at 104.14 127 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 4bfb1382-ec1b-40e1-9028-5a4b6be10c3e)
-    (property "Reference" "3V05" (at 107.95 125.73 0)
+    (property "Reference" "#3V05" (at 107.95 125.73 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "3V3" (at 104.14 124.46 0)
@@ -1692,7 +1832,7 @@
     (instances
       (project "pcb"
         (path "/6bb3bad6-1a89-4624-b34d-6ddda7dd16d2/19469851-aeaf-466c-9786-c0d0ae531cf4"
-          (reference "3V05") (unit 1)
+          (reference "#3V05") (unit 1)
         )
       )
     )
@@ -1701,7 +1841,7 @@
   (symbol (lib_id "generic:GND") (at 185.42 83.82 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 4d9fab7a-cba2-4fcf-8339-4b8da7c922be)
-    (property "Reference" "GND023" (at 189.23 82.55 0)
+    (property "Reference" "#GND023" (at 189.23 82.55 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 189.23 83.82 0)
@@ -1717,7 +1857,7 @@
     (instances
       (project "pcb"
         (path "/6bb3bad6-1a89-4624-b34d-6ddda7dd16d2/19469851-aeaf-466c-9786-c0d0ae531cf4"
-          (reference "GND023") (unit 1)
+          (reference "#GND023") (unit 1)
         )
       )
     )
@@ -1747,6 +1887,31 @@
         )
         (path "/6bb3bad6-1a89-4624-b34d-6ddda7dd16d2/19469851-aeaf-466c-9786-c0d0ae531cf4"
           (reference "C20") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "PCB:test_point") (at 160.02 127 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid 55e6d6a3-c5ca-4d5e-8894-8665c2577cb5)
+    (property "Reference" "TP8" (at 163.83 126.6825 0)
+      (effects (font (size 1.27 1.27)) (justify left))
+    )
+    (property "Value" "test_point" (at 160.02 124.46 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Footprint" "PCB:test_point" (at 162.56 128.27 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "" (at 160.02 127 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid 345988f2-05f7-4981-9f7b-be7049ca3d36))
+    (instances
+      (project "pcb"
+        (path "/6bb3bad6-1a89-4624-b34d-6ddda7dd16d2/19469851-aeaf-466c-9786-c0d0ae531cf4"
+          (reference "TP8") (unit 1)
         )
       )
     )
@@ -1813,7 +1978,7 @@
   (symbol (lib_id "generic:GND") (at 198.12 99.06 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 68da83b4-2f8b-4818-99e6-7d5f546dbe1d)
-    (property "Reference" "GND026" (at 201.93 97.79 0)
+    (property "Reference" "#GND026" (at 201.93 97.79 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 201.93 99.06 0)
@@ -1829,7 +1994,32 @@
     (instances
       (project "pcb"
         (path "/6bb3bad6-1a89-4624-b34d-6ddda7dd16d2/19469851-aeaf-466c-9786-c0d0ae531cf4"
-          (reference "GND026") (unit 1)
+          (reference "#GND026") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "PCB:test_point") (at 160.02 101.6 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no)
+    (uuid 7b76cf68-ef4b-4bdb-a6b6-1672a9c4531f)
+    (property "Reference" "TP3" (at 163.83 101.2825 0)
+      (effects (font (size 1.27 1.27)) (justify left))
+    )
+    (property "Value" "test_point" (at 160.02 99.06 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Footprint" "PCB:test_point" (at 162.56 102.87 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "" (at 160.02 101.6 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid d1146e27-b48d-49a6-ac89-1a0345897b9b))
+    (instances
+      (project "pcb"
+        (path "/6bb3bad6-1a89-4624-b34d-6ddda7dd16d2/19469851-aeaf-466c-9786-c0d0ae531cf4"
+          (reference "TP3") (unit 1)
         )
       )
     )
@@ -1870,10 +2060,60 @@
     )
   )
 
+  (symbol (lib_id "PCB:test_point") (at 134.62 121.92 0) (mirror y) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no)
+    (uuid 8d410eef-30e4-4154-9134-b44425312b5d)
+    (property "Reference" "TP2" (at 132.08 121.92 0)
+      (effects (font (size 1.27 1.27)) (justify left))
+    )
+    (property "Value" "test_point" (at 134.62 119.38 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Footprint" "PCB:test_point" (at 132.08 123.19 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "" (at 134.62 121.92 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid 84fa7584-54ce-4bd6-8d66-3f9c245b7b8c))
+    (instances
+      (project "pcb"
+        (path "/6bb3bad6-1a89-4624-b34d-6ddda7dd16d2/19469851-aeaf-466c-9786-c0d0ae531cf4"
+          (reference "TP2") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "PCB:test_point") (at 134.62 106.68 0) (mirror y) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no)
+    (uuid a2796810-4566-4e03-bcc7-b2c4e3fefc57)
+    (property "Reference" "TP1" (at 132.08 106.68 0)
+      (effects (font (size 1.27 1.27)) (justify left))
+    )
+    (property "Value" "test_point" (at 134.62 104.14 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Footprint" "PCB:test_point" (at 132.08 107.95 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "" (at 134.62 106.68 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid a2d52e3f-f176-49e0-899a-ba7c80fd60d7))
+    (instances
+      (project "pcb"
+        (path "/6bb3bad6-1a89-4624-b34d-6ddda7dd16d2/19469851-aeaf-466c-9786-c0d0ae531cf4"
+          (reference "TP1") (unit 1)
+        )
+      )
+    )
+  )
+
   (symbol (lib_id "generic:3V3") (at 106.68 83.82 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid a348e5af-dbc7-4b32-9239-a8905f139a03)
-    (property "Reference" "3V04" (at 110.49 82.55 0)
+    (property "Reference" "#3V04" (at 110.49 82.55 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "3V3" (at 106.68 81.28 0)
@@ -1889,7 +2129,7 @@
     (instances
       (project "pcb"
         (path "/6bb3bad6-1a89-4624-b34d-6ddda7dd16d2/19469851-aeaf-466c-9786-c0d0ae531cf4"
-          (reference "3V04") (unit 1)
+          (reference "#3V04") (unit 1)
         )
       )
     )
@@ -1898,7 +2138,7 @@
   (symbol (lib_id "generic:GND") (at 104.14 142.24 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid a803c4b7-f2ca-4ff8-bb22-e43178b09df0)
-    (property "Reference" "GND021" (at 107.95 140.97 0)
+    (property "Reference" "#GND021" (at 107.95 140.97 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 107.95 142.24 0)
@@ -1914,7 +2154,7 @@
     (instances
       (project "pcb"
         (path "/6bb3bad6-1a89-4624-b34d-6ddda7dd16d2/19469851-aeaf-466c-9786-c0d0ae531cf4"
-          (reference "GND021") (unit 1)
+          (reference "#GND021") (unit 1)
         )
       )
     )
@@ -1923,7 +2163,7 @@
   (symbol (lib_id "generic:GND") (at 185.42 71.12 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid acdadc6e-dcf7-4d3c-ae09-47025ac00420)
-    (property "Reference" "GND025" (at 189.23 69.85 0)
+    (property "Reference" "#GND025" (at 189.23 69.85 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 189.23 71.12 0)
@@ -1939,7 +2179,7 @@
     (instances
       (project "pcb"
         (path "/6bb3bad6-1a89-4624-b34d-6ddda7dd16d2/19469851-aeaf-466c-9786-c0d0ae531cf4"
-          (reference "GND025") (unit 1)
+          (reference "#GND025") (unit 1)
         )
       )
     )
@@ -1977,7 +2217,7 @@
   (symbol (lib_id "generic:GND") (at 116.84 93.98 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid ba46165d-ed6f-4a7f-b81f-2774e73464bd)
-    (property "Reference" "GND019" (at 120.65 92.71 0)
+    (property "Reference" "#GND019" (at 120.65 92.71 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 120.65 93.98 0)
@@ -1993,7 +2233,7 @@
     (instances
       (project "pcb"
         (path "/6bb3bad6-1a89-4624-b34d-6ddda7dd16d2/19469851-aeaf-466c-9786-c0d0ae531cf4"
-          (reference "GND019") (unit 1)
+          (reference "#GND019") (unit 1)
         )
       )
     )
@@ -2060,7 +2300,7 @@
   (symbol (lib_id "generic:GND") (at 180.34 83.82 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid c7706fb5-1c08-4adf-972f-3a6670ff49a6)
-    (property "Reference" "GND022" (at 184.15 82.55 0)
+    (property "Reference" "#GND022" (at 184.15 82.55 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 184.15 83.82 0)
@@ -2076,7 +2316,32 @@
     (instances
       (project "pcb"
         (path "/6bb3bad6-1a89-4624-b34d-6ddda7dd16d2/19469851-aeaf-466c-9786-c0d0ae531cf4"
-          (reference "GND022") (unit 1)
+          (reference "#GND022") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "PCB:test_point") (at 160.02 132.08 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid cf988d40-9782-4c81-b4f2-321a10f744e8)
+    (property "Reference" "TP10" (at 163.83 131.7625 0)
+      (effects (font (size 1.27 1.27)) (justify left))
+    )
+    (property "Value" "test_point" (at 160.02 129.54 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Footprint" "PCB:test_point" (at 162.56 133.35 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "" (at 160.02 132.08 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid 93fafd64-d31b-4240-a1bc-6d8c5a0e8d19))
+    (instances
+      (project "pcb"
+        (path "/6bb3bad6-1a89-4624-b34d-6ddda7dd16d2/19469851-aeaf-466c-9786-c0d0ae531cf4"
+          (reference "TP10") (unit 1)
         )
       )
     )
@@ -2085,8 +2350,8 @@
   (symbol (lib_id "pin_headers:1x6") (at 190.5 127 0) (mirror x) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid d0cd274e-024b-4a0d-98ca-6d2c837cda62)
-    (property "Reference" "CN8" (at 196.85 125.095 0)
-      (effects (font (size 1.27 1.27)) (justify left))
+    (property "Reference" "CN11" (at 196.85 125.095 0)
+      (effects (font (size 1.27 1.27)) (justify left) hide)
     )
     (property "Value" "1x6" (at 190.5 134.62 0)
       (effects (font (size 1.27 1.27)) hide)
@@ -2106,7 +2371,32 @@
     (instances
       (project "pcb"
         (path "/6bb3bad6-1a89-4624-b34d-6ddda7dd16d2/19469851-aeaf-466c-9786-c0d0ae531cf4"
-          (reference "CN8") (unit 1)
+          (reference "CN11") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "PCB:test_point") (at 160.02 134.62 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid d3db969a-257b-4caf-8641-f10635abbffb)
+    (property "Reference" "TP11" (at 163.83 134.3025 0)
+      (effects (font (size 1.27 1.27)) (justify left))
+    )
+    (property "Value" "test_point" (at 160.02 132.08 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Footprint" "PCB:test_point" (at 162.56 135.89 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "" (at 160.02 134.62 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid 14668531-b783-4ef7-a36a-771adfaa423c))
+    (instances
+      (project "pcb"
+        (path "/6bb3bad6-1a89-4624-b34d-6ddda7dd16d2/19469851-aeaf-466c-9786-c0d0ae531cf4"
+          (reference "TP11") (unit 1)
         )
       )
     )
@@ -2144,7 +2434,7 @@
   (symbol (lib_id "generic:GND") (at 187.96 134.62 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid dd9e2354-dcd6-4f67-9647-cf7803a6850f)
-    (property "Reference" "GND020" (at 191.77 133.35 0)
+    (property "Reference" "#GND020" (at 191.77 133.35 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 191.77 134.62 0)
@@ -2160,7 +2450,7 @@
     (instances
       (project "pcb"
         (path "/6bb3bad6-1a89-4624-b34d-6ddda7dd16d2/19469851-aeaf-466c-9786-c0d0ae531cf4"
-          (reference "GND020") (unit 1)
+          (reference "#GND020") (unit 1)
         )
       )
     )
@@ -2169,7 +2459,7 @@
   (symbol (lib_id "generic:3V3") (at 198.12 78.74 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid ea47c01c-3c65-4289-988c-f9b9283462f5)
-    (property "Reference" "3V06" (at 201.93 77.47 0)
+    (property "Reference" "#3V06" (at 201.93 77.47 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "3V3" (at 198.12 76.2 0)
@@ -2185,7 +2475,7 @@
     (instances
       (project "pcb"
         (path "/6bb3bad6-1a89-4624-b34d-6ddda7dd16d2/19469851-aeaf-466c-9786-c0d0ae531cf4"
-          (reference "3V06") (unit 1)
+          (reference "#3V06") (unit 1)
         )
       )
     )
@@ -2254,7 +2544,32 @@
           (reference "R10") (unit 1)
         )
         (path "/6bb3bad6-1a89-4624-b34d-6ddda7dd16d2/19469851-aeaf-466c-9786-c0d0ae531cf4"
-          (reference "R12") (unit 1)
+          (reference "R16") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "PCB:test_point") (at 160.02 129.54 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid f61d4dd5-1478-4017-988f-b1da88415a96)
+    (property "Reference" "TP9" (at 163.83 129.2225 0)
+      (effects (font (size 1.27 1.27)) (justify left))
+    )
+    (property "Value" "test_point" (at 160.02 127 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Footprint" "PCB:test_point" (at 162.56 130.81 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "" (at 160.02 129.54 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid a08fb99c-79ee-4671-a570-1303b718d904))
+    (instances
+      (project "pcb"
+        (path "/6bb3bad6-1a89-4624-b34d-6ddda7dd16d2/19469851-aeaf-466c-9786-c0d0ae531cf4"
+          (reference "TP9") (unit 1)
         )
       )
     )
@@ -2263,7 +2578,7 @@
   (symbol (lib_id "generic:GND") (at 73.66 78.74 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid f9925cf8-f21f-4274-ae52-6f9fa115168c)
-    (property "Reference" "GND017" (at 77.47 77.47 0)
+    (property "Reference" "#GND017" (at 77.47 77.47 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 77.47 78.74 0)
@@ -2279,7 +2594,7 @@
     (instances
       (project "pcb"
         (path "/6bb3bad6-1a89-4624-b34d-6ddda7dd16d2/19469851-aeaf-466c-9786-c0d0ae531cf4"
-          (reference "GND017") (unit 1)
+          (reference "#GND017") (unit 1)
         )
       )
     )
@@ -2288,7 +2603,7 @@
   (symbol (lib_id "generic:GND") (at 180.34 71.12 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid faf3d8d4-3304-4609-9acc-e6c309653c8c)
-    (property "Reference" "GND024" (at 184.15 69.85 0)
+    (property "Reference" "#GND024" (at 184.15 69.85 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 184.15 71.12 0)
@@ -2304,7 +2619,7 @@
     (instances
       (project "pcb"
         (path "/6bb3bad6-1a89-4624-b34d-6ddda7dd16d2/19469851-aeaf-466c-9786-c0d0ae531cf4"
-          (reference "GND024") (unit 1)
+          (reference "#GND024") (unit 1)
         )
       )
     )

@@ -6,7 +6,7 @@
 
   (title_block
     (title "CAN bus to RC servo adapter")
-    (date "2024-01-10")
+    (date "2024-01-14")
     (rev "0")
     (comment 1 "CAN bus interface")
   )
@@ -318,7 +318,7 @@
   (symbol (lib_id "generic:GND") (at 137.16 121.92 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 0ba034a9-96ee-4626-92bd-380413f41024)
-    (property "Reference" "GND030" (at 140.97 120.65 0)
+    (property "Reference" "#GND030" (at 140.97 120.65 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 140.97 121.92 0)
@@ -334,7 +334,7 @@
     (instances
       (project "pcb"
         (path "/6bb3bad6-1a89-4624-b34d-6ddda7dd16d2/fdb1a2c0-3d58-431c-bfc9-dd28e6008cdb"
-          (reference "GND030") (unit 1)
+          (reference "#GND030") (unit 1)
         )
       )
     )
@@ -343,7 +343,7 @@
   (symbol (lib_id "generic:GND") (at 157.48 121.92 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 1b006fac-0baf-4d7e-83de-9067b7756cde)
-    (property "Reference" "GND029" (at 161.29 120.65 0)
+    (property "Reference" "#GND029" (at 161.29 120.65 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 161.29 121.92 0)
@@ -359,7 +359,7 @@
     (instances
       (project "pcb"
         (path "/6bb3bad6-1a89-4624-b34d-6ddda7dd16d2/fdb1a2c0-3d58-431c-bfc9-dd28e6008cdb"
-          (reference "GND029") (unit 1)
+          (reference "#GND029") (unit 1)
         )
       )
     )
@@ -394,7 +394,7 @@
   (symbol (lib_id "generic:GND") (at 127 121.92 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 7e6f613d-f7c6-40e7-b1ea-0c6913e345e6)
-    (property "Reference" "GND031" (at 130.81 120.65 0)
+    (property "Reference" "#GND031" (at 130.81 120.65 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 130.81 121.92 0)
@@ -410,7 +410,7 @@
     (instances
       (project "pcb"
         (path "/6bb3bad6-1a89-4624-b34d-6ddda7dd16d2/fdb1a2c0-3d58-431c-bfc9-dd28e6008cdb"
-          (reference "GND031") (unit 1)
+          (reference "#GND031") (unit 1)
         )
       )
     )
@@ -419,7 +419,7 @@
   (symbol (lib_id "generic:5V") (at 127 104.14 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 83dc42f7-c55e-47a1-9bdd-2fc49774b817)
-    (property "Reference" "5V05" (at 130.81 102.87 0)
+    (property "Reference" "#5V05" (at 130.81 102.87 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "5V" (at 127 101.6 0)
@@ -435,7 +435,7 @@
     (instances
       (project "pcb"
         (path "/6bb3bad6-1a89-4624-b34d-6ddda7dd16d2/fdb1a2c0-3d58-431c-bfc9-dd28e6008cdb"
-          (reference "5V05") (unit 1)
+          (reference "#5V05") (unit 1)
         )
       )
     )

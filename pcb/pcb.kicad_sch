@@ -6,7 +6,7 @@
 
   (title_block
     (title "CAN bus to RC servo adapter")
-    (date "2024-01-10")
+    (date "2024-01-14")
     (rev "0")
     (comment 1 "User interfaces")
   )
@@ -1163,6 +1163,10 @@
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid 9aa9324b-dbc1-44e2-906d-4e492d2abbca)
   )
+  (text "5V is GND for some reason" (at 109.22 63.5 0)
+    (effects (font (size 5 5)) (justify left bottom))
+    (uuid a2f14686-0dc6-495b-abf5-eecc372686e0)
+  )
   (text "ESC power jumper" (at 200.66 114.3 0)
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid c5a73965-566b-4690-80a9-7bdfb006393e)
@@ -1192,7 +1196,7 @@
   (symbol (lib_id "generic:5V") (at 88.9 111.76 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 14d211fd-ac62-44dc-a941-f6cfe889f862)
-    (property "Reference" "5V04" (at 92.71 110.49 0)
+    (property "Reference" "#5V04" (at 92.71 110.49 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "5V" (at 88.9 109.22 0)
@@ -1208,7 +1212,7 @@
     (instances
       (project "pcb"
         (path "/6bb3bad6-1a89-4624-b34d-6ddda7dd16d2"
-          (reference "5V04") (unit 1)
+          (reference "#5V04") (unit 1)
         )
       )
     )
@@ -1223,7 +1227,7 @@
     (property "Value" "1x2" (at 228.6 78.74 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "Footprint" "" (at 231.14 78.74 0)
+    (property "Footprint" "pin_headers:1x2" (at 231.14 78.74 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "" (at 236.22 78.74 0)
@@ -1289,7 +1293,7 @@
   (symbol (lib_id "generic:GND") (at 132.08 142.24 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 20f6299a-ed1d-4b13-9122-9c81ec92f9d8)
-    (property "Reference" "GND07" (at 135.89 140.97 0)
+    (property "Reference" "#GND07" (at 135.89 140.97 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 135.89 142.24 0)
@@ -1305,7 +1309,7 @@
     (instances
       (project "pcb"
         (path "/6bb3bad6-1a89-4624-b34d-6ddda7dd16d2"
-          (reference "GND07") (unit 1)
+          (reference "#GND07") (unit 1)
         )
       )
     )
@@ -1348,7 +1352,7 @@
     (property "Value" "1x8" (at 193.04 119.38 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "Footprint" "" (at 193.04 121.92 0)
+    (property "Footprint" "pin_headers:1x8" (at 193.04 121.92 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "" (at 193.04 127 0)
@@ -1436,7 +1440,7 @@
   (symbol (lib_id "generic:GND") (at 129.54 124.46 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 56efa497-b1a0-4999-9d74-7b14be51708c)
-    (property "Reference" "GND01" (at 133.35 123.19 0)
+    (property "Reference" "#GND01" (at 133.35 123.19 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 133.35 124.46 0)
@@ -1452,7 +1456,7 @@
     (instances
       (project "pcb"
         (path "/6bb3bad6-1a89-4624-b34d-6ddda7dd16d2"
-          (reference "GND01") (unit 1)
+          (reference "#GND01") (unit 1)
         )
       )
     )
@@ -1461,7 +1465,7 @@
   (symbol (lib_id "generic:GND") (at 203.2 142.24 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 604ae725-5f41-484d-a46b-ca2b7b6695a4)
-    (property "Reference" "GND09" (at 207.01 140.97 0)
+    (property "Reference" "#GND09" (at 207.01 140.97 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 207.01 142.24 0)
@@ -1477,7 +1481,7 @@
     (instances
       (project "pcb"
         (path "/6bb3bad6-1a89-4624-b34d-6ddda7dd16d2"
-          (reference "GND09") (unit 1)
+          (reference "#GND09") (unit 1)
         )
       )
     )
@@ -1492,7 +1496,7 @@
     (property "Value" "1x8" (at 205.74 119.38 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "Footprint" "" (at 205.74 121.92 0)
+    (property "Footprint" "pin_headers:1x8" (at 205.74 121.92 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "" (at 205.74 127 0)
@@ -1553,7 +1557,7 @@
     (property "Value" "1x8" (at 180.34 119.38 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "Footprint" "" (at 180.34 121.92 0)
+    (property "Footprint" "pin_headers:1x8" (at 180.34 121.92 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "" (at 180.34 127 0)
@@ -1623,7 +1627,7 @@
           (reference "GND08") (unit 1)
         )
         (path "/6bb3bad6-1a89-4624-b34d-6ddda7dd16d2"
-          (reference "GND08") (unit 1)
+          (reference "#GND08") (unit 1)
         )
       )
     )
@@ -1632,7 +1636,7 @@
   (symbol (lib_id "generic:GND") (at 182.88 109.22 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid a97c2503-6d32-4059-9e43-7564c2060bb3)
-    (property "Reference" "GND010" (at 186.69 107.95 0)
+    (property "Reference" "#GND010" (at 186.69 107.95 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 186.69 109.22 0)
@@ -1648,7 +1652,7 @@
     (instances
       (project "pcb"
         (path "/6bb3bad6-1a89-4624-b34d-6ddda7dd16d2"
-          (reference "GND010") (unit 1)
+          (reference "#GND010") (unit 1)
         )
       )
     )
@@ -1689,7 +1693,7 @@
     (property "Value" "F" (at 76.2 81.28 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "Footprint" "SMT:0603" (at 73.66 79.375 0)
+    (property "Footprint" "" (at 73.66 79.375 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "" (at 76.2 78.74 0)
@@ -1773,7 +1777,7 @@
   (symbol (lib_name "GND_1") (lib_id "generic:GND") (at 78.74 149.86 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid c6c24f5a-b08f-4968-9f1c-b3a9478d4f24)
-    (property "Reference" "#GND01" (at 82.55 148.59 0)
+    (property "Reference" "#GND034" (at 82.55 148.59 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 82.55 149.86 0)
@@ -1789,7 +1793,7 @@
     (instances
       (project "pcb"
         (path "/6bb3bad6-1a89-4624-b34d-6ddda7dd16d2"
-          (reference "#GND01") (unit 1)
+          (reference "#GND034") (unit 1)
         )
       )
     )
@@ -1824,7 +1828,7 @@
   (symbol (lib_id "generic:5V") (at 190.5 109.22 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid d4b903fc-335e-4a71-bd82-e6900cb7b250)
-    (property "Reference" "5V03" (at 194.31 107.95 0)
+    (property "Reference" "#5V03" (at 194.31 107.95 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "5V" (at 190.5 106.68 0)
@@ -1840,7 +1844,7 @@
     (instances
       (project "pcb"
         (path "/6bb3bad6-1a89-4624-b34d-6ddda7dd16d2"
-          (reference "5V03") (unit 1)
+          (reference "#5V03") (unit 1)
         )
       )
     )
@@ -1849,7 +1853,7 @@
   (symbol (lib_id "generic:GND") (at 63.5 83.82 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid d51a77bb-f94c-413b-ac18-159652fbb0ca)
-    (property "Reference" "GND016" (at 67.31 82.55 0)
+    (property "Reference" "#GND016" (at 67.31 82.55 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 67.31 83.82 0)
@@ -1865,7 +1869,7 @@
     (instances
       (project "pcb"
         (path "/6bb3bad6-1a89-4624-b34d-6ddda7dd16d2"
-          (reference "GND016") (unit 1)
+          (reference "#GND016") (unit 1)
         )
       )
     )
@@ -1880,7 +1884,7 @@
     (property "Value" "1x2" (at 193.04 109.22 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "Footprint" "" (at 193.04 111.76 0)
+    (property "Footprint" "pin_headers:1x2" (at 193.04 111.76 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "" (at 193.04 116.84 0)
@@ -1927,7 +1931,7 @@
   (symbol (lib_id "generic:5V") (at 132.08 132.08 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid f656a48b-a2a9-405a-9a59-9d8c311edabd)
-    (property "Reference" "5V02" (at 135.89 130.81 0)
+    (property "Reference" "#5V02" (at 135.89 130.81 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "5V" (at 132.08 129.54 0)
@@ -1943,7 +1947,7 @@
     (instances
       (project "pcb"
         (path "/6bb3bad6-1a89-4624-b34d-6ddda7dd16d2"
-          (reference "5V02") (unit 1)
+          (reference "#5V02") (unit 1)
         )
       )
     )
