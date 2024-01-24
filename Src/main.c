@@ -421,7 +421,7 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
-L_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan1)
+void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan1)
 {
     HAL_GPIO_WritePin(status_GPIO_Port, status_Pin, GPIO_PIN_SET);
 	HAL_CAN_GetRxMessage(hcan1, CAN_RX_FIFO0, &rxHeader, canRX); //Receive CAN bus message to canRX buffer
