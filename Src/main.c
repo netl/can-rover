@@ -41,6 +41,7 @@
 
 /* Private variables ---------------------------------------------------------*/
 ADC_HandleTypeDef hadc1;
+DMA_HandleTypeDef hdma_adc1;
 
 CAN_HandleTypeDef hcan;
 
@@ -57,6 +58,7 @@ uint32_t canMailbox; //CAN Bus Mail box variable
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
+static void MX_DMA_Init(void);
 static void MX_ADC1_Init(void);
 static void MX_CAN_Init(void);
 static void MX_TIM1_Init(void);
@@ -97,6 +99,7 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
+  MX_DMA_Init();
   MX_ADC1_Init();
   MX_CAN_Init();
   MX_TIM1_Init();
@@ -128,6 +131,7 @@ int main(void)
   HAL_TIM_Base_Start_IT(&htim1);
   HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1);
   //__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, 200);
+  uint32_t value[2] = {0,0};
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -139,7 +143,7 @@ int main(void)
 	// transmit
 	if (HAL_CAN_GetTxMailboxesFreeLevel(&hcan) > 0){
 	    //CAN_TxHeaderTypedef txHeader;
-		uint8_t data[] = {0xa,0xf};
+		uint8_t data[] = {value[0] & 0xff,(value[0]>>8)& 0xff};
 		HAL_CAN_AddTxMessage(&hcan, &txHeader, data, &txMailbox);
 	}
 
@@ -166,6 +170,7 @@ int main(void)
 		// set pwm
 		//pwm( channel, pwmValue );
 	}*/
+    HAL_ADC_Start_DMA(&hadc1, value, 2); // start adc in DMA mode
     HAL_GPIO_WritePin(status_GPIO_Port, status_Pin, GPIO_PIN_RESET);
     HAL_Delay(1000);
     /* USER CODE END WHILE */
@@ -239,12 +244,12 @@ static void MX_ADC1_Init(void)
   /** Common config
   */
   hadc1.Instance = ADC1;
-  hadc1.Init.ScanConvMode = ADC_SCAN_DISABLE;
+  hadc1.Init.ScanConvMode = ADC_SCAN_ENABLE;
   hadc1.Init.ContinuousConvMode = DISABLE;
   hadc1.Init.DiscontinuousConvMode = DISABLE;
   hadc1.Init.ExternalTrigConv = ADC_SOFTWARE_START;
   hadc1.Init.DataAlign = ADC_DATAALIGN_RIGHT;
-  hadc1.Init.NbrOfConversion = 1;
+  hadc1.Init.NbrOfConversion = 2;
   if (HAL_ADC_Init(&hadc1) != HAL_OK)
   {
     Error_Handler();
@@ -255,6 +260,15 @@ static void MX_ADC1_Init(void)
   sConfig.Channel = ADC_CHANNEL_0;
   sConfig.Rank = ADC_REGULAR_RANK_1;
   sConfig.SamplingTime = ADC_SAMPLETIME_1CYCLE_5;
+  if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+
+  /** Configure Regular Channel
+  */
+  sConfig.Channel = ADC_CHANNEL_1;
+  sConfig.Rank = ADC_REGULAR_RANK_2;
   if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
   {
     Error_Handler();
@@ -386,6 +400,22 @@ static void MX_TIM1_Init(void)
 
   /* USER CODE END TIM1_Init 2 */
   HAL_TIM_MspPostInit(&htim1);
+
+}
+
+/**
+  * Enable DMA controller clock
+  */
+static void MX_DMA_Init(void)
+{
+
+  /* DMA controller clock enable */
+  __HAL_RCC_DMA1_CLK_ENABLE();
+
+  /* DMA interrupt init */
+  /* DMA1_Channel1_IRQn interrupt configuration */
+  HAL_NVIC_SetPriority(DMA1_Channel1_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(DMA1_Channel1_IRQn);
 
 }
 
