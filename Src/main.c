@@ -31,6 +31,8 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
+#define BASE_CHANNEL_ID 0x010 //TODO: Read from DIP switches
+#define N_CHANNELS 4
 
 /* USER CODE END PD */
 
@@ -63,6 +65,7 @@ static void MX_ADC1_Init(void);
 static void MX_CAN_Init(void);
 static void MX_TIM1_Init(void);
 /* USER CODE BEGIN PFP */
+void setServo(uint8_t channel, uint16_t value);
 
 /* USER CODE END PFP */
 
@@ -105,20 +108,19 @@ int main(void)
   MX_TIM1_Init();
   /* USER CODE BEGIN 2 */
 
-    //HAL_CAN_Start(&hcan);
   txHeader.DLC = 8;
   txHeader.IDE = CAN_ID_STD;
   txHeader.RTR = CAN_RTR_DATA;
-  txHeader.StdId = 0x030;
+  txHeader.StdId = BASE_CHANNEL_ID | 0x8;
   txHeader.ExtId = 0x02;
   txHeader.TransmitGlobalTime = DISABLE;
 
   canfil.FilterBank = 0;
   canfil.FilterMode = CAN_FILTERMODE_IDMASK;
   canfil.FilterFIFOAssignment = CAN_RX_FIFO0;
-  canfil.FilterIdHigh = 0;
+  canfil.FilterIdHigh = BASE_CHANNEL_ID << 5 ; //no idea why this works
   canfil.FilterIdLow = 0;
-  canfil.FilterMaskIdHigh = 0;
+  canfil.FilterMaskIdHigh = BASE_CHANNEL_ID << 5 ; //no idea why this works
   canfil.FilterMaskIdLow = 0;
   canfil.FilterScale = CAN_FILTERSCALE_32BIT;
   canfil.FilterActivation = ENABLE;
@@ -130,8 +132,15 @@ int main(void)
   //TIM1->CCR1 = 30;
   HAL_TIM_Base_Start_IT(&htim1);
   HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1);
+  HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_2);
+  HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_3);
+  HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_4);
   //__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, 200);
   uint32_t value[2] = {0,0};
+  TIM1->CCR1 = 3000;
+  TIM1->CCR2 = 3000;
+  TIM1->CCR3 = 3000;
+  TIM1->CCR4 = 3000;
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -142,34 +151,10 @@ int main(void)
     HAL_GPIO_WritePin(status_GPIO_Port, status_Pin, GPIO_PIN_SET);
 	// transmit
 	if (HAL_CAN_GetTxMailboxesFreeLevel(&hcan) > 0){
-	    //CAN_TxHeaderTypedef txHeader;
 		uint8_t data[] = {value[0] & 0xff,(value[0]>>8)& 0xff};
 		HAL_CAN_AddTxMessage(&hcan, &txHeader, data, &txMailbox);
 	}
 
-	//receive
-    /*
-	uint8_t data[8];
-	CAN_RxHeaderTypeDef rxHeader;
-	while (HAL_CAN_GetRxFifoFillLevel(&hcan, CAN_RX_FIFO0)){
-		HAL_CAN_GetRxMessage(&hcan, CAN_RX_FIFO0, &rxHeader, data);
-	   
-		//channel = rxId - BASE_ADRESS;
-
-		// check that channel is valid
-		//if ( channel > 3 ) 
-		//	return 1;
-
-		// check that data is within range
-		//if ( rxData > SERVO_RESOLUTION )
-		//	 return 2;
-
-		// translate given value to servo pwm
-		//pwmValue = ( PWM_MIN + PWM_RANGE * rxData/SERVO_RESOLUTION ) / PWM_PERIOD;
-
-		// set pwm
-		//pwm( channel, pwmValue );
-	}*/
     HAL_ADC_Start_DMA(&hadc1, value, 2); // start adc in DMA mode
     HAL_GPIO_WritePin(status_GPIO_Port, status_Pin, GPIO_PIN_RESET);
     HAL_Delay(1000);
@@ -451,12 +436,59 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
+//interrupt for received CAN frame
 void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan1)
 {
+    //inform user of received data
     HAL_GPIO_WritePin(status_GPIO_Port, status_Pin, GPIO_PIN_SET);
-	HAL_CAN_GetRxMessage(hcan1, CAN_RX_FIFO0, &rxHeader, canRX); //Receive CAN bus message to canRX buffer
-    TIM1->CCR1 = canRX[0]*7 + 2000;
 
+    //get CAN bus message to canRX buffer
+    HAL_CAN_GetRxMessage(hcan1, CAN_RX_FIFO0, &rxHeader, canRX);
+
+    //match arbitration ID to pwm channel
+    uint8_t channel = rxHeader.StdId & 0x7;
+
+    //combine bytes
+    uint16_t value = canRX[0]<<8 | canRX[1];
+
+    setServo(channel, value);
+}
+
+void setServo(uint8_t channel, uint16_t value){
+
+    value += 2000; //1 ms base for servo
+
+    //match to timer channels
+    switch(channel){
+        case 0:
+            TIM1->CCR1 = value; //PA8
+            break;
+        case 1:
+            TIM1->CCR2 = value; //PA9
+            break;
+        case 2:
+            TIM1->CCR3 = value; //PA10
+            //TIM2->CCR3 = value; //PA2
+            break;
+        case 3:
+            TIM1->CCR4 = value; //PA11
+            //TIM2->CCR4 = value; //PA3
+            break;
+        /*
+        case 4:
+            TIM3->CCR1 = value; //PA6
+            break;
+        case 5:
+            TIM3->CCR2 = value; //PA7
+            break;
+        case 6:
+            TIM3->CCR3 = value; //PB0
+            break;
+        case 7:
+            TIM3->CCR4 = value; //PB1
+            break;
+        */
+    }
 }
 
 /* USER CODE END 4 */
@@ -470,11 +502,19 @@ void Error_Handler(void)
   /* USER CODE BEGIN Error_Handler_Debug */
   /* User can add his own implementation to report the HAL error return state */
   __disable_irq();
+
+  //set all channels to middle position
+  for(uint8_t channel = 0; channel < N_CHANNELS; channel++)
+    setServo(channel, 1000);
+
   while (1)
   {
+    HAL_GPIO_TogglePin(status_GPIO_Port, status_Pin);
+    HAL_Delay(1000);
   }
   /* USER CODE END Error_Handler_Debug */
 }
+
 
 #ifdef  USE_FULL_ASSERT
 /**
