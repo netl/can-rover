@@ -138,9 +138,9 @@ int main(void)
   //__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, 200);
   uint32_t value[2] = {0,0};
   TIM1->CCR1 = 3000;
-  TIM1->CCR2 = 3000;
+  TIM1->CCR2 = 1000;
   TIM1->CCR3 = 3000;
-  TIM1->CCR4 = 3000;
+  TIM1->CCR4 = 5000;
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -322,7 +322,7 @@ static void MX_TIM1_Init(void)
 
   /* USER CODE END TIM1_Init 1 */
   htim1.Instance = TIM1;
-  htim1.Init.Prescaler = 4;
+  htim1.Init.Prescaler = 3;
   htim1.Init.CounterMode = TIM_COUNTERMODE_UP;
   htim1.Init.Period = 40000;
   htim1.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
