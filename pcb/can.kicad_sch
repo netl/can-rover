@@ -13,7 +13,7 @@
 
   (lib_symbols
     (symbol "generic:5V" (power) (pin_numbers hide) (pin_names (offset 0) hide) (in_bom yes) (on_board yes)
-      (property "Reference" "5V" (at 3.81 1.27 0)
+      (property "Reference" "#5V" (at 3.81 1.27 0)
         (effects (font (size 1.27 1.27)) hide)
       )
       (property "Value" "5V" (at 0 3.81 0)
@@ -35,13 +35,13 @@
             (xy 1.27 1.27)
             (xy 0 1.27)
           )
-          (stroke (width 0) (type solid))
+          (stroke (width 0) (type default))
           (fill (type none))
         )
       )
       (symbol "5V_1_1"
         (pin power_in line (at 0 0 90) (length 2.54) hide
-          (name "GND" (effects (font (size 1.27 1.27))))
+          (name "5V" (effects (font (size 1.27 1.27))))
           (number "~" (effects (font (size 1.27 1.27))))
         )
       )
