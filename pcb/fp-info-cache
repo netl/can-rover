@@ -1,4 +1,4 @@
-75850770701867
+82744071823672
 PCB
 battery_wires
 
@@ -56,6 +56,13 @@ SMT
 9
 9
 SOP
+SO-8
+
+
+0
+8
+8
+SOP
 SOP-8
 
 
@@ -110,6 +117,13 @@ micro_usb
 
 0
 11
+6
+buttons
+219-3LPST
+
+
+0
+6
 6
 buttons
 JS102011SAQN
@@ -307,6 +321,20 @@ Battery_solder-points
 0
 2
 2
+sc70
+SC70-5L
+
+
+0
+5
+5
+sc70
+SC70-6L
+
+
+0
+6
+6
 xtal
 3.2x2.5CXO
 
