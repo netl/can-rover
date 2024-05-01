@@ -1,4 +1,11 @@
-82744071823672
+96468774511604
+PCB
+M3.5
+
+
+0
+0
+0
 PCB
 battery_wires
 
@@ -49,6 +56,13 @@ SMT
 4
 4
 SMT
+2512-high-current
+
+
+0
+2
+2
+SMT
 3030_8
 
 
@@ -69,6 +83,13 @@ SOP-8
 0
 12
 9
+SOP
+SOP-16
+
+
+0
+16
+16
 SOT
 SOT-23
 
@@ -111,6 +132,13 @@ TSSOP-8
 0
 8
 8
+USB
+USB4105-GF-A
+
+
+0
+16
+16
 USB
 micro_usb
 
@@ -161,6 +189,20 @@ connectors
 3
 3
 connectors
+3557-15
+
+
+0
+4
+2
+connectors
+XT60
+
+
+0
+2
+2
+connectors
 YK4410403000G
 
 
@@ -204,6 +246,20 @@ ESP-23-WROOM
 39
 ikea
 ikea_DC_barrel
+
+
+0
+2
+2
+inductor
+5x5
+
+
+0
+2
+2
+inductor
+CDRH2D11
 
 
 0
