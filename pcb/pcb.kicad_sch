@@ -2078,7 +2078,7 @@
       (effects (font (size 1.27 1.27)) (justify right))
       (uuid a184c978-f4c6-4f4f-99c8-42c3b284b452)
     )
-    (pin "USB_M" bidirectional (at 139.7 106.68 180)
+    (pin "USB_N" bidirectional (at 139.7 106.68 180)
       (effects (font (size 1.27 1.27)) (justify left))
       (uuid be0013fe-1154-4bdc-a607-ed715687ca44)
     )
