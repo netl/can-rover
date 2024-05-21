@@ -6,7 +6,7 @@
 
   (title_block
     (title "CAN bus to RC servo adapter")
-    (date "2024-01-14")
+    (date "2024-05-21")
     (rev "0")
     (comment 1 "CAN bus interface")
   )
