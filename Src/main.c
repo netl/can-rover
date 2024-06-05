@@ -33,6 +33,8 @@
 /* USER CODE BEGIN PD */
 #define BASE_CHANNEL_ID 0x010 //TODO: Read from DIP switches
 #define N_CHANNELS 4
+#define SERVO_CENTER 1500
+#define SAFETY_TIMEOUT 2000
 
 /* USER CODE END PD */
 
@@ -55,6 +57,9 @@ CAN_TxHeaderTypeDef txHeader; //CAN Bus Receive Header
 uint8_t canRX[8] = {0,0,0,0,0,0,0,0};  //CAN Bus Receive Buffer
 CAN_FilterTypeDef canfil; //CAN Bus Filter
 uint32_t canMailbox; //CAN Bus Mail box variable
+
+//for keeping track of when each channel has been updated
+uint32_t servoLastUpdated[N_CHANNELS] = {0};
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -137,10 +142,9 @@ int main(void)
   HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_4);
   //__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, 200);
   uint32_t value[2] = {0,0};
-  TIM1->CCR1 = 1500;
-  TIM1->CCR2 = 1500;
-  TIM1->CCR3 = 1500;
-  TIM1->CCR4 = 1500;
+    //setup servos
+    for(int i=0; i<N_CHANNELS; i++)
+        setServo(i, SERVO_CENTER);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -156,6 +160,13 @@ int main(void)
 	}
 
     HAL_ADC_Start_DMA(&hadc1, value, 2); // start adc in DMA mode
+
+    //center any channel that hasn't been updated for a while
+    for(int i=0; i<N_CHANNELS; i++){
+        if ( (HAL_GetTick() - servoLastUpdated[i]) > SAFETY_TIMEOUT)
+            setServo(i, SERVO_CENTER);
+    }
+
     HAL_GPIO_WritePin(status_GPIO_Port, status_Pin, GPIO_PIN_RESET);
     HAL_Delay(1000);
     /* USER CODE END WHILE */
@@ -486,6 +497,7 @@ void setServo(uint8_t channel, uint16_t value){
             break;
         */
     }
+    servoLastUpdated[channel] = HAL_GetTick(); //update for timeout
 }
 
 /* USER CODE END 4 */
@@ -502,7 +514,7 @@ void Error_Handler(void)
 
   //set all channels to middle position
   for(uint8_t channel = 0; channel < N_CHANNELS; channel++)
-    setServo(channel, 1000);
+    setServo(channel, SERVO_CENTER);
 
   while (1)
   {
