@@ -1847,7 +1847,7 @@
     (property "Reference" "C?" (at 96.52 71.12 0)
       (effects (font (size 1.27 1.27)) (justify left bottom))
     )
-    (property "Value" "4u7" (at 96.52 71.12 0)
+    (property "Value" "10u" (at 96.52 71.12 0)
       (effects (font (size 1.27 1.27)) (justify left top))
     )
     (property "Footprint" "SMT:0603" (at 93.98 73.66 0)
