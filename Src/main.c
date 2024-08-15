@@ -35,6 +35,7 @@
 #define N_CHANNELS 8
 #define SERVO_CENTER 1500
 #define SAFETY_TIMEOUT 2000
+#define CAN_MESSAGES 2 //number of different messages to send over CAN bus
 
 /* USER CODE END PD */
 
@@ -54,14 +55,18 @@ TIM_HandleTypeDef htim2;
 TIM_HandleTypeDef htim3;
 
 /* USER CODE BEGIN PV */
-CAN_RxHeaderTypeDef rxHeader; //CAN Bus Transmit Header
-CAN_TxHeaderTypeDef txHeader; //CAN Bus Receive Header
-uint8_t canRX[8] = {0,0,0,0,0,0,0,0};  //CAN Bus Receive Buffer
-CAN_FilterTypeDef canfil; //CAN Bus Filter
-uint32_t canMailbox; //CAN Bus Mail box variable
+//CAN bus
+CAN_RxHeaderTypeDef rxHeader; //Transmit Header
+CAN_TxHeaderTypeDef txHeader; //Receive Header
+uint8_t canRX[8] = {0,0,0,0,0,0,0,0};  //Receive Buffer
+CAN_FilterTypeDef canfil; //Filter
+uint32_t canMailbox; //Mail box variable
 
-//for keeping track of when each channel has been updated
-uint32_t servoLastUpdated[N_CHANNELS] = {0};
+//Servo
+uint32_t servoLastUpdated[N_CHANNELS] = {0}; //timestamps for timeout
+
+//ADC
+uint32_t ADCResults[2] = {0,0}; //ADC results
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -119,42 +124,15 @@ int main(void)
   MX_TIM3_Init();
   /* USER CODE BEGIN 2 */
 
-  txHeader.DLC = 8;
-  txHeader.IDE = CAN_ID_STD;
-  txHeader.RTR = CAN_RTR_DATA;
-  txHeader.StdId = BASE_CHANNEL_ID | 0x8;
-  txHeader.ExtId = 0x02;
-  txHeader.TransmitGlobalTime = DISABLE;
+  uint32_t CANAddress = (
+    HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_10) << 0 |
+    HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_11) << 1 |
+    HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_12) << 2
+    ) << 4;
 
-  canfil.FilterBank = 0;
-  canfil.FilterMode = CAN_FILTERMODE_IDMASK;
-  canfil.FilterFIFOAssignment = CAN_RX_FIFO0;
-  canfil.FilterIdHigh = BASE_CHANNEL_ID << 5 ; //no idea why this works
-  canfil.FilterIdLow = 0;
-  canfil.FilterMaskIdHigh = BASE_CHANNEL_ID << 5 ; //no idea why this works
-  canfil.FilterMaskIdLow = 0;
-  canfil.FilterScale = CAN_FILTERSCALE_32BIT;
-  canfil.FilterActivation = ENABLE;
-  canfil.SlaveStartFilterBank = 14;
-  HAL_CAN_ConfigFilter(&hcan,&canfil); //Initialize CAN Filter
-  HAL_CAN_Start(&hcan); //Initialize CAN Bus
-  HAL_CAN_ActivateNotification(&hcan,CAN_IT_RX_FIFO0_MSG_PENDING);// Initialize CAN Bus Rx Interrupt
-
-  //TIM1->CCR1 = 30;
-  HAL_TIM_Base_Start_IT(&htim1);
-  HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1);
-  HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_2);
-  HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_3);
-  HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_4);
-  HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_1);
-  HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_2);
-  HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_3);
-  HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_4);
-  //__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, 200);
-  uint32_t value[2] = {0,0};
-    //setup servos
-    for(int i=0; i<N_CHANNELS; i++)
-        setServo(i, SERVO_CENTER);
+  //setup servos
+  for(int i=0; i<N_CHANNELS; i++)
+    setServo(i, SERVO_CENTER);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -163,13 +141,36 @@ int main(void)
   while (1)
   {
     HAL_GPIO_WritePin(status_GPIO_Port, status_Pin, GPIO_PIN_SET);
-	// transmit
-	if (HAL_CAN_GetTxMailboxesFreeLevel(&hcan) > 0){
-		uint8_t data[] = {value[0] & 0xff,(value[0]>>8)& 0xff};
-		HAL_CAN_AddTxMessage(&hcan, &txHeader, data, &txMailbox);
-	}
 
-    HAL_ADC_Start_DMA(&hadc1, value, 2); // start adc in DMA mode
+    //transmit status
+    if (HAL_CAN_GetTxMailboxesFreeLevel(&hcan) > 0){
+            //set address
+            static uint8_t TXCounter = 0;
+            uint8_t data[2] = {0};
+            txHeader.StdId = CANAddress | 0x8 | (TXCounter & 0b111);
+
+            //fetch correct data
+            switch(TXCounter){
+                case 0: //battery voltage
+                    data[0] = ADCResults[0] & 0xff;
+                    data[1] = (ADCResults[0]>>8) & 0xff;
+                    break;
+                case 1: //battery current
+                    data[0] = ADCResults[1] & 0xff;
+                    data[1] = (ADCResults[1]>>8) & 0xff;
+                    break;
+            }
+
+            //send
+            HAL_CAN_AddTxMessage(&hcan, &txHeader, data, &txMailbox);
+
+            //next address
+            TXCounter++;
+            if (TXCounter > CAN_MESSAGES-1)
+                TXCounter = 0;
+    }
+
+    HAL_ADC_Start_DMA(&hadc1, ADCResults, 2); // start adc in DMA mode
 
     //center any channel that hasn't been updated for a while
     for(int i=0; i<N_CHANNELS; i++){
@@ -178,7 +179,7 @@ int main(void)
     }
 
     HAL_GPIO_WritePin(status_GPIO_Port, status_Pin, GPIO_PIN_RESET);
-    HAL_Delay(1000);
+    HAL_Delay(1000/(CAN_MESSAGES*3));
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -317,7 +318,27 @@ static void MX_CAN_Init(void)
     Error_Handler();
   }
   /* USER CODE BEGIN CAN_Init 2 */
-
+  txHeader.DLC = 8;
+  txHeader.IDE = CAN_ID_STD;
+  txHeader.RTR = CAN_RTR_DATA;
+  txHeader.StdId = BASE_CHANNEL_ID | 0x8;
+  txHeader.ExtId = 0x02;
+  txHeader.TransmitGlobalTime = DISABLE;
+  canfil.FilterBank = 0;
+  canfil.FilterMode = CAN_FILTERMODE_IDMASK;
+  canfil.FilterFIFOAssignment = CAN_RX_FIFO0;
+  //canfil.FilterIdHigh = BASE_CHANNEL_ID << 5 ; //no idea why this works
+  canfil.FilterIdHigh = 0;
+  canfil.FilterIdLow = 0;
+  //canfil.FilterMaskIdHigh = BASE_CHANNEL_ID << 5 ; //no idea why this works
+  canfil.FilterMaskIdHigh = 0;
+  canfil.FilterMaskIdLow = 0;
+  canfil.FilterScale = CAN_FILTERSCALE_32BIT;
+  canfil.FilterActivation = ENABLE;
+  canfil.SlaveStartFilterBank = 14;
+  HAL_CAN_ConfigFilter(&hcan,&canfil); //Initialize CAN Filter
+  HAL_CAN_Start(&hcan); //Initialize CAN Bus
+  HAL_CAN_ActivateNotification(&hcan,CAN_IT_RX_FIFO0_MSG_PENDING);// Initialize CAN Bus Rx Interrupt
   /* USER CODE END CAN_Init 2 */
 
 }
@@ -395,7 +416,9 @@ static void MX_TIM1_Init(void)
     Error_Handler();
   }
   /* USER CODE BEGIN TIM1_Init 2 */
-
+  HAL_TIM_Base_Start_IT(&htim1);
+  HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1);
+  HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_2);
   /* USER CODE END TIM1_Init 2 */
   HAL_TIM_MspPostInit(&htim1);
 
@@ -458,7 +481,9 @@ static void MX_TIM2_Init(void)
     Error_Handler();
   }
   /* USER CODE BEGIN TIM2_Init 2 */
-
+  HAL_TIM_Base_Start_IT(&htim2);
+  HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_3);
+  HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_4);
   /* USER CODE END TIM2_Init 2 */
   HAL_TIM_MspPostInit(&htim2);
 
@@ -529,7 +554,11 @@ static void MX_TIM3_Init(void)
     Error_Handler();
   }
   /* USER CODE BEGIN TIM3_Init 2 */
-
+  HAL_TIM_Base_Start_IT(&htim3);
+  HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_1);
+  HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_2);
+  HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_3);
+  HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_4);
   /* USER CODE END TIM3_Init 2 */
   HAL_TIM_MspPostInit(&htim3);
 
@@ -576,6 +605,12 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(status_GPIO_Port, &GPIO_InitStruct);
+
+  /*Configure GPIO pins : PB10 PB11 PB12 */
+  GPIO_InitStruct.Pin = GPIO_PIN_10|GPIO_PIN_11|GPIO_PIN_12;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  GPIO_InitStruct.Pull = GPIO_PULLUP;
+  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
 /* USER CODE BEGIN MX_GPIO_Init_2 */
 /* USER CODE END MX_GPIO_Init_2 */
