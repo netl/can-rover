@@ -61,6 +61,7 @@ CAN_TxHeaderTypeDef txHeader; //Receive Header
 uint8_t canRX[8] = {0,0,0,0,0,0,0,0};  //Receive Buffer
 CAN_FilterTypeDef canfil; //Filter
 uint32_t canMailbox; //Mail box variable
+uint32_t CANAddress;
 
 //Servo
 uint32_t servoLastUpdated[N_CHANNELS] = {0}; //timestamps for timeout
@@ -124,12 +125,6 @@ int main(void)
   MX_TIM3_Init();
   /* USER CODE BEGIN 2 */
 
-  uint32_t CANAddress = (
-    HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_10) << 0 |
-    HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_11) << 1 |
-    HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_12) << 2
-    ) << 4;
-
   //setup servos
   for(int i=0; i<N_CHANNELS; i++)
     setServo(i, SERVO_CENTER);
@@ -152,12 +147,12 @@ int main(void)
             //fetch correct data
             switch(TXCounter){
                 case 0: //battery voltage
-                    data[0] = ADCResults[0] & 0xff;
-                    data[1] = (ADCResults[0]>>8) & 0xff;
+                    data[1] = ADCResults[0] & 0xff;
+                    data[0] = (ADCResults[0]>>8) & 0xff;
                     break;
                 case 1: //battery current
-                    data[0] = ADCResults[1] & 0xff;
-                    data[1] = (ADCResults[1]>>8) & 0xff;
+                    data[1] = ADCResults[1] & 0xff;
+                    data[0] = (ADCResults[1]>>8) & 0xff;
                     break;
             }
 
@@ -318,20 +313,18 @@ static void MX_CAN_Init(void)
     Error_Handler();
   }
   /* USER CODE BEGIN CAN_Init 2 */
-  txHeader.DLC = 8;
+  txHeader.DLC = 2;
   txHeader.IDE = CAN_ID_STD;
   txHeader.RTR = CAN_RTR_DATA;
-  txHeader.StdId = BASE_CHANNEL_ID | 0x8;
-  txHeader.ExtId = 0x02;
+  txHeader.StdId =  CANAddress | 0x8;
+l txHeader.ExtId = 0x00;
   txHeader.TransmitGlobalTime = DISABLE;
   canfil.FilterBank = 0;
   canfil.FilterMode = CAN_FILTERMODE_IDMASK;
   canfil.FilterFIFOAssignment = CAN_RX_FIFO0;
-  //canfil.FilterIdHigh = BASE_CHANNEL_ID << 5 ; //no idea why this works
-  canfil.FilterIdHigh = 0;
+  canfil.FilterIdHigh = CANAddress << 5;
   canfil.FilterIdLow = 0;
-  //canfil.FilterMaskIdHigh = BASE_CHANNEL_ID << 5 ; //no idea why this works
-  canfil.FilterMaskIdHigh = 0;
+  canfil.FilterMaskIdHigh = 0x7f8<<5;
   canfil.FilterMaskIdLow = 0;
   canfil.FilterScale = CAN_FILTERSCALE_32BIT;
   canfil.FilterActivation = ENABLE;
@@ -613,6 +606,12 @@ static void MX_GPIO_Init(void)
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
 /* USER CODE BEGIN MX_GPIO_Init_2 */
+  CANAddress = (
+    HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_10) << 0 |
+    HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_11) << 1 |
+    HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_12) << 2
+    ) << 4;
+
 /* USER CODE END MX_GPIO_Init_2 */
 }
 
