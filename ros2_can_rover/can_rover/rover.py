@@ -7,7 +7,7 @@ import time
 
 class canRover(Node):
     def __init__(self):
-        super().__init__('crawler_module')
+        super().__init__('can_rover')
 
         #power monitoring
         self.power = {
@@ -25,19 +25,19 @@ class canRover(Node):
         self.declare_parameter("current_scale", -40./4096)
         self.declare_parameter("current_offset", 10.)
         for n in range(8): #servo channels
-            self.declare_parameter(f"channel_{n}_scale", 1000)
-            self.declare_parameter(f"channel_{n}_offset", 1500)
+            self.declare_parameter(f"channel_{n+1}_scale", 1000)
+            self.declare_parameter(f"channel_{n+1}_offset", 1500)
 
         #publisher
         self.outputs = ["voltage", "current", "watts", "wattHours"]
         self.publishTopics = []
         for topic in self.outputs:
-            self.publishTopics.append(self.create_publisher(Float32, f"crawler/{topic}", 10))
+            self.publishTopics.append(self.create_publisher(Float32, f"rover/{topic}", 10))
 
         #subscriber
         self.subscribeTopics = []
         for channel in range(8):
-            self.subscribeTopics.append(self.create_subscription(Float32, f"crawler/channel_{channel}", partial(self.listener_callback, channel), 10))
+            self.subscribeTopics.append(self.create_subscription(Float32, f"rover/channel_{channel+1}", partial(self.listener_callback, channel), 10))
 
         #self.subscription # prevent unused variable warning
 
@@ -95,8 +95,8 @@ class canRover(Node):
     #set servo channels 
     def listener_callback(self, channel, msg):
         a = msg.data
-        scale = self.get_parameter(f"channel_{channel}_scale").get_parameter_value().integer_value
-        offset = self.get_parameter(f"channel_{channel}_offset").get_parameter_value().integer_value
+        scale = self.get_parameter(f"channel_{channel+1}_scale").get_parameter_value().integer_value
+        offset = self.get_parameter(f"channel_{channel+1}_offset").get_parameter_value().integer_value
         result = int(a*scale+offset)
 
         #can address base
