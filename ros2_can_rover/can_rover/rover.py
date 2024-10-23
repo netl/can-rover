@@ -39,6 +39,8 @@ class canRover(Node):
         for channel in range(8):
             self.subscribeTopics.append(self.create_subscription(Float32, f"rover/channel_{channel+1}", partial(self.listener_callback, channel), 10))
 
+        self.setWh = self.create_subscription(Float32,  "rover/set_wattHours", self.set_wattHours, 10)
+
         #self.subscription # prevent unused variable warning
 
         #canbus
@@ -80,7 +82,7 @@ class canRover(Node):
             #watt hours
             td = (t-self.power["time"])/3600 #time delta in hours
             wt = td*(w+self.power["watts"])/2 #trapezoidal
-            wattHours = max(self.power["wattHours"]+wt,0.0)
+            wattHours = self.power["wattHours"]+wt
             self.get_logger().debug(f"wattHours:{wattHours}")
             self.power.update({"time":t,"wattHours":wattHours,"watts":w})
 
@@ -111,6 +113,9 @@ class canRover(Node):
         #send
         self.bus.send(bus_msg, timeout=0)
         self.get_logger().debug(f"{channel}:{result}")
+
+    def set_wattHours(self, msg):
+        self.power.update({"wattHours":msg.data})
 
 def main(args=None):
     rclpy.init(args=args)
