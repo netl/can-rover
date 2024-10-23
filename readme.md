@@ -1,16 +1,22 @@
 # can-rover
 The goal is to convert cheap RC car kits in to computer driven robots by
-replacing the receiver with a separate module.
+replacing the receiver with a separate module.  
+The project consists of three parts working as a whole:
+1. [Hardware](#hardware)
+2. [Firmware](#firmware)
+3. [ROS2 node](#ros2-node)
 
-## PCB
+## Hardware
 features:
-* protected XT60 passthrough 
+* XT60 passthrough
+* fuse protected battery input
 * battery current & voltage measurement
 * 2x canbus+power connectors
 * 8 servo channels
 * 8 selectable addresses
-* fuse protected battery
 * maximum rating: 20 V, 30 A
+* **TODO: 8x buffered inputs with pull-up to 5V**
+* **TODO: power switch with e-stop to servo power when no channels are active**
 
 ### CAN header
 Jumper for 120R termination.  
@@ -33,13 +39,11 @@ measures voltage and current
 |voltage    |  0 V  | 20 V |
 |current    | -10 A | 30 A |
 
-### TODO: User input channels
-* 8x buffered inputs with pull-up to servo power
-* 1x analog channel
-
 ## Firmware
-`sudo ip link set up can0 type can bitrate 500000`  
-all messages are `big-endian`
+* `sudo ip link set up can0 type can bitrate 500000`  
+* All messages are `big-endian`. 
+* [python-can](https://python-can.readthedocs.io/en/stable/scripts.html) has great tools for debugging.
+* `cd firmware; make`
 
 ### Address
 `base address` selectable by DIP switches:
@@ -51,7 +55,7 @@ all messages are `big-endian`
 | ...          |.|.|.|
 | 0x070        |1|1|1|
 
-**note: the dip switch numbering is reversed from regular binary notation**
+**note: the dip switches are numbered left to right**
 
 ### Servo
 
@@ -68,9 +72,16 @@ all messages are `big-endian`
 | 0      | battery voltage     | 2     |
 | 1      | battery current     | 2     |
 
-## ROS 2 node
-Provided node bridges firmware to ros topics.  
-`ln -s ros2_can_rover ~/ros2_ws/src/can_rover`
+## ROS2 node
+Provided node bridges firmware to ros topics.
+
+### Installation
+1. Install [ROS2](https://docs.ros.org/en/jazzy/Installation.html)
+2. create [ros2_ws](https://docs.ros.org/en/jazzy/Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace.html)
+3. `ln -s ros2_can_rover ~/ros2_ws/src/can_rover`
+4. `cd ~/ros2_ws/`
+5. `colcon build`
+6. `ros2 run can_rover rover`
 
 ### Servo channels
 defaulted to drive regular 180 degree servos.
