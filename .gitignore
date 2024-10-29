@@ -1,2 +1,7 @@
+#vim
 *.swp
+
+#kicad
 *-backups*
+*bak
+_autosave*
