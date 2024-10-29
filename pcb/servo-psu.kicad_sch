@@ -1,0 +1,19 @@
+(kicad_sch (version 20230121) (generator eeschema)
+
+  (uuid 00faffc0-78ca-4209-a6ce-183cea9aea83)
+
+  (paper "A4")
+
+  (lib_symbols
+  )
+
+
+  (hierarchical_label "EN" (shape input) (at 121.92 101.6 180) (fields_autoplaced)
+    (effects (font (size 1.27 1.27)) (justify right))
+    (uuid 0db72999-cbc6-4a32-9c12-5459814a9b2d)
+  )
+  (hierarchical_label "SERVO_VCC" (shape output) (at 149.86 101.6 0) (fields_autoplaced)
+    (effects (font (size 1.27 1.27) bold) (justify left))
+    (uuid 8f5b13fd-c117-44b0-96cb-f5017cb2affe)
+  )
+)
