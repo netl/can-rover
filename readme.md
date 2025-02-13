@@ -11,12 +11,12 @@ features:
 * XT60 passthrough
 * fuse protected battery input
 * battery current & voltage measurement
+    * maximum rating: 20 V, 30 A
 * 2x canbus+power connectors
-* 8 servo channels
+* 8 buffered servo channels
 * 8 selectable addresses
-* maximum rating: 20 V, 30 A
-* **TODO: 8x buffered inputs with pull-up to 5V**
-* **TODO: power switch with e-stop to servo power when no channels are active**
+* 8 buffered inputs with pull-up to 5V
+* e-stop controlled servo power
 
 ### CAN header
 Jumper for 120R termination.  
@@ -47,15 +47,13 @@ measures voltage and current
 
 ### Address
 `base address` selectable by DIP switches:
-| base address |1|2|3|
+| base address |3|2|1|
 |-------------:|-|-|-|
-| 0x010        |0|0|0|
-| 0x020        |1|0|0|
-| 0x030        |0|1|0|
+| 0x000        |0|0|0|
+| 0x010        |0|0|1|
+| 0x020        |0|1|0|
 | ...          |.|.|.|
 | 0x070        |1|1|1|
-
-**note: the dip switches are numbered left to right**
 
 ### Servo
 
@@ -104,5 +102,5 @@ defaulted to drive regular 180 degree servos.
 |---------------|--------|
 |voltage\_scale |20/4096 |
 |voltage\_offset|0.      |
-|current\_scale |-30/4096|
+|current\_scale |-40/4096|
 |current\_offset|10.     |
