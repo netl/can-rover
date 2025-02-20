@@ -1,4 +1,4 @@
-94865000082117
+107847376905882
 PCB
 M3.5
 
@@ -27,6 +27,13 @@ test_point
 0
 1
 1
+QFP
+LQFP-48
+
+
+0
+48
+48
 SMT
 0603
 
@@ -209,6 +216,13 @@ YK4410403000G
 0
 4
 4
+do
+DO-214AC
+
+SMA
+0
+2
+2
 elite_dekkerz
 ELITE_dekkerz
 
@@ -377,6 +391,13 @@ Battery_solder-points
 0
 2
 2
+potentiometers
+3362P
+
+
+0
+3
+3
 sc70
 SC70-5L
 
@@ -391,3 +412,24 @@ SC70-6L
 0
 6
 6
+xtal
+3.2x2.5CXO
+
+
+0
+4
+4
+xtal
+5x3.2
+
+
+0
+4
+4
+xtal
+8x3.2
+
+
+0
+4
+4

@@ -1,510 +1,1388 @@
-(kicad_sch (version 20230121) (generator eeschema)
-
-  (uuid 701158e1-86be-4729-8e67-1557ad54e18d)
-
-  (paper "A4")
-
-  (title_block
-    (title "CAN bus to RC servo adapter")
-    (date "2024-05-21")
-    (rev "0")
-    (comment 1 "CAN bus interface")
-  )
-
-  (lib_symbols
-    (symbol "generic:5V" (power) (pin_numbers hide) (pin_names (offset 0) hide) (in_bom yes) (on_board yes)
-      (property "Reference" "#5V" (at 3.81 1.27 0)
-        (effects (font (size 1.27 1.27)) hide)
-      )
-      (property "Value" "5V" (at 0 3.81 0)
-        (effects (font (size 1.27 1.27)))
-      )
-      (property "Footprint" "" (at 0 0 0)
-        (effects (font (size 1.27 1.27)) hide)
-      )
-      (property "Datasheet" "" (at 0 0 0)
-        (effects (font (size 1.27 1.27)) hide)
-      )
-      (symbol "5V_0_1"
-        (polyline
-          (pts
-            (xy 0 0)
-            (xy 0 1.27)
-            (xy -1.27 1.27)
-            (xy 0 2.54)
-            (xy 1.27 1.27)
-            (xy 0 1.27)
-          )
-          (stroke (width 0) (type default))
-          (fill (type none))
-        )
-      )
-      (symbol "5V_1_1"
-        (pin power_in line (at 0 0 90) (length 2.54) hide
-          (name "5V" (effects (font (size 1.27 1.27))))
-          (number "~" (effects (font (size 1.27 1.27))))
-        )
-      )
-    )
-    (symbol "generic:C" (pin_numbers hide) (pin_names (offset 0) hide) (in_bom yes) (on_board yes)
-      (property "Reference" "C" (at 2.54 0 0)
-        (effects (font (size 1.27 1.27)))
-      )
-      (property "Value" "C" (at 2.54 -2.54 0)
-        (effects (font (size 1.27 1.27)) hide)
-      )
-      (property "Footprint" "SMT:0603" (at 0 -2.54 0)
-        (effects (font (size 1.27 1.27)) hide)
-      )
-      (property "Datasheet" "" (at 0 0 0)
-        (effects (font (size 1.27 1.27)) hide)
-      )
-      (symbol "C_0_1"
-        (polyline
-          (pts
-            (xy -1.27 -0.254)
-            (xy 1.27 -0.254)
-          )
-          (stroke (width 0) (type solid))
-          (fill (type none))
-        )
-        (polyline
-          (pts
-            (xy 1.27 0.254)
-            (xy -1.27 0.254)
-          )
-          (stroke (width 0) (type solid))
-          (fill (type none))
-        )
-      )
-      (symbol "C_1_1"
-        (pin bidirectional line (at 0 2.54 270) (length 2.3114)
-          (name "~" (effects (font (size 1.27 1.27))))
-          (number "1" (effects (font (size 1.27 1.27))))
-        )
-        (pin bidirectional line (at 0 -2.54 90) (length 2.3114)
-          (name "~" (effects (font (size 1.27 1.27))))
-          (number "2" (effects (font (size 1.27 1.27))))
-        )
-      )
-    )
-    (symbol "generic:GND" (power) (pin_numbers hide) (pin_names (offset 0) hide) (in_bom yes) (on_board yes)
-      (property "Reference" "GND" (at 3.81 1.27 0)
-        (effects (font (size 1.27 1.27)) hide)
-      )
-      (property "Value" "GND" (at 3.81 0 0)
-        (effects (font (size 1.27 1.27)) hide)
-      )
-      (property "Footprint" "" (at 0 0 0)
-        (effects (font (size 1.27 1.27)) hide)
-      )
-      (property "Datasheet" "" (at 0 0 0)
-        (effects (font (size 1.27 1.27)) hide)
-      )
-      (symbol "GND_0_1"
-        (polyline
-          (pts
-            (xy -1.27 -1.27)
-            (xy 1.27 -1.27)
-          )
-          (stroke (width 0) (type solid))
-          (fill (type none))
-        )
-        (polyline
-          (pts
-            (xy 0 -2.54)
-            (xy 0 -2.54)
-          )
-          (stroke (width 0) (type solid))
-          (fill (type none))
-        )
-        (polyline
-          (pts
-            (xy 0 -1.27)
-            (xy 0 0)
-          )
-          (stroke (width 0) (type solid))
-          (fill (type none))
-        )
-        (polyline
-          (pts
-            (xy 0.635 -1.905)
-            (xy -0.635 -1.905)
-          )
-          (stroke (width 0) (type solid))
-          (fill (type none))
-        )
-      )
-      (symbol "GND_1_1"
-        (pin power_in line (at 0 0 270) (length 2.54) hide
-          (name "GND" (effects (font (size 1.27 1.27))))
-          (number "~" (effects (font (size 1.27 1.27))))
-        )
-      )
-    )
-    (symbol "generic:R" (pin_numbers hide) (pin_names (offset 0) hide) (in_bom yes) (on_board yes)
-      (property "Reference" "R" (at 0 1.905 0)
-        (effects (font (size 1.27 1.27)))
-      )
-      (property "Value" "R" (at 0 -2.54 0)
-        (effects (font (size 1.27 1.27)) hide)
-      )
-      (property "Footprint" "SMT:0603" (at -2.54 -0.635 0)
-        (effects (font (size 1.27 1.27)) hide)
-      )
-      (property "Datasheet" "" (at 0 0 0)
-        (effects (font (size 1.27 1.27)) hide)
-      )
-      (symbol "R_0_1"
-        (rectangle (start -1.27 0.635) (end 1.27 -0.635)
-          (stroke (width 0) (type solid))
-          (fill (type background))
-        )
-      )
-      (symbol "R_1_1"
-        (pin bidirectional line (at -2.54 0 0) (length 1.27)
-          (name "~" (effects (font (size 1.27 1.27))))
-          (number "1" (effects (font (size 1.27 1.27))))
-        )
-        (pin bidirectional line (at 2.54 0 180) (length 1.27)
-          (name "~" (effects (font (size 1.27 1.27))))
-          (number "2" (effects (font (size 1.27 1.27))))
-        )
-      )
-    )
-    (symbol "serial:MCP2551" (in_bom yes) (on_board yes)
-      (property "Reference" "IC" (at 0 10.16 0)
-        (effects (font (size 1.27 1.27)))
-      )
-      (property "Value" "MCP2551" (at 0 7.62 0)
-        (effects (font (size 1.27 1.27)))
-      )
-      (property "Footprint" "SOP:SO-8" (at 17.78 15.24 0)
-        (effects (font (size 1.27 1.27)) hide)
-      )
-      (property "Datasheet" "https://ww1.microchip.com/downloads/en/DeviceDoc/20001667G.pdf" (at 17.78 15.24 0)
-        (effects (font (size 1.27 1.27)) hide)
-      )
-      (property "MPN" "MCP2551T-I/SN" (at 17.78 15.24 0)
-        (effects (font (size 1.27 1.27)) hide)
-      )
-      (property "Manufacturer" "Microchip" (at 17.78 15.24 0)
-        (effects (font (size 1.27 1.27)) hide)
-      )
-      (property "DigiKey" "MCP2551T-I/SNCT-ND" (at 17.78 15.24 0)
-        (effects (font (size 1.27 1.27)) hide)
-      )
-      (symbol "MCP2551_0_1"
-        (rectangle (start 5.08 -6.35) (end 5.08 -6.35)
-          (stroke (width 0) (type default))
-          (fill (type none))
-        )
-      )
-      (symbol "MCP2551_1_1"
-        (rectangle (start -5.08 6.35) (end 5.08 -6.35)
-          (stroke (width 0) (type default))
-          (fill (type background))
-        )
-        (pin input line (at -7.62 5.08 0) (length 2.54)
-          (name "TXD" (effects (font (size 1.27 1.27))))
-          (number "1" (effects (font (size 1.27 1.27))))
-        )
-        (pin power_out line (at -7.62 -5.08 0) (length 2.54)
-          (name "VSS" (effects (font (size 1.27 1.27))))
-          (number "2" (effects (font (size 1.27 1.27))))
-        )
-        (pin power_in line (at -7.62 0 0) (length 2.54)
-          (name "VDD" (effects (font (size 1.27 1.27))))
-          (number "3" (effects (font (size 1.27 1.27))))
-        )
-        (pin output line (at -7.62 2.54 0) (length 2.54)
-          (name "RXD" (effects (font (size 1.27 1.27))))
-          (number "4" (effects (font (size 1.27 1.27))))
-        )
-        (pin output line (at -7.62 -2.54 0) (length 2.54)
-          (name "VREF" (effects (font (size 1.27 1.27))))
-          (number "5" (effects (font (size 1.27 1.27))))
-        )
-        (pin bidirectional line (at 7.62 0 180) (length 2.54)
-          (name "CANL" (effects (font (size 1.27 1.27))))
-          (number "6" (effects (font (size 1.27 1.27))))
-        )
-        (pin bidirectional line (at 7.62 5.08 180) (length 2.54)
-          (name "CANH" (effects (font (size 1.27 1.27))))
-          (number "7" (effects (font (size 1.27 1.27))))
-        )
-        (pin bidirectional line (at 7.62 -5.08 180) (length 2.54)
-          (name "RS" (effects (font (size 1.27 1.27))))
-          (number "8" (effects (font (size 1.27 1.27))))
-        )
-      )
-    )
-  )
-
-  (junction (at 127 106.68) (diameter 0) (color 0 0 0 0)
-    (uuid 7efd8974-0849-4f57-b282-3964a0fe5227)
-  )
-
-  (wire (pts (xy 139.7 111.76) (xy 137.16 111.76))
-    (stroke (width 0) (type default))
-    (uuid 05cef6f9-ef26-4c95-a0d4-f99a05384e1e)
-  )
-  (wire (pts (xy 127 106.68) (xy 139.7 106.68))
-    (stroke (width 0) (type default))
-    (uuid 11082e31-2c47-4aef-ba73-1c58bb1c21cb)
-  )
-  (wire (pts (xy 154.94 101.6) (xy 165.1 101.6))
-    (stroke (width 0) (type default))
-    (uuid 5aa7bcb1-2241-442c-9d42-c262ab419966)
-  )
-  (wire (pts (xy 154.94 106.68) (xy 165.1 106.68))
-    (stroke (width 0) (type default))
-    (uuid 637f4dd2-389a-490c-92c5-0bbc27f2feac)
-  )
-  (wire (pts (xy 154.94 111.76) (xy 157.48 111.76))
-    (stroke (width 0) (type default))
-    (uuid 7d31a112-a1ea-4e14-ae6e-93f5fd370832)
-  )
-  (wire (pts (xy 137.16 101.6) (xy 139.7 101.6))
-    (stroke (width 0) (type default))
-    (uuid 81ee4388-4c4f-48e6-9a96-e7d642f25b06)
-  )
-  (wire (pts (xy 157.48 119.38) (xy 157.48 121.92))
-    (stroke (width 0) (type default))
-    (uuid 9d905270-2c96-400f-b870-7d2c5af1dc79)
-  )
-  (wire (pts (xy 137.16 104.14) (xy 139.7 104.14))
-    (stroke (width 0) (type default))
-    (uuid aa47fb84-99c0-43a5-a123-5192a1672f84)
-  )
-  (wire (pts (xy 127 116.84) (xy 127 121.92))
-    (stroke (width 0) (type default))
-    (uuid af88f1cd-affd-4171-ac12-bf46d256ff1d)
-  )
-  (wire (pts (xy 137.16 111.76) (xy 137.16 121.92))
-    (stroke (width 0) (type default))
-    (uuid be02b75d-17b4-4462-a258-0d2325eaea6e)
-  )
-  (wire (pts (xy 127 104.14) (xy 127 106.68))
-    (stroke (width 0) (type default))
-    (uuid cbe6f11c-ee62-4bb4-a773-7a5fb6d58fc8)
-  )
-  (wire (pts (xy 127 106.68) (xy 127 111.76))
-    (stroke (width 0) (type default))
-    (uuid dd3b1113-c22f-4b54-958f-aec9c92b950d)
-  )
-  (wire (pts (xy 157.48 111.76) (xy 157.48 114.3))
-    (stroke (width 0) (type default))
-    (uuid f6b47b56-4ee9-410a-83e3-99a4c8e67941)
-  )
-
-  (hierarchical_label "CAN_L" (shape bidirectional) (at 165.1 106.68 0) (fields_autoplaced)
-    (effects (font (size 1.27 1.27)) (justify left))
-    (uuid 30db27d5-a5c9-4430-9aea-8d5f78502211)
-  )
-  (hierarchical_label "CAN_RX" (shape output) (at 137.16 104.14 180) (fields_autoplaced)
-    (effects (font (size 1.27 1.27)) (justify right))
-    (uuid 88b77dca-0527-47ba-8cc7-9c91a9fb5afc)
-  )
-  (hierarchical_label "CAN_TX" (shape input) (at 137.16 101.6 180) (fields_autoplaced)
-    (effects (font (size 1.27 1.27)) (justify right))
-    (uuid c02818c4-e2d7-4801-a8f5-7438507200a5)
-  )
-  (hierarchical_label "CAN_H" (shape bidirectional) (at 165.1 101.6 0) (fields_autoplaced)
-    (effects (font (size 1.27 1.27)) (justify left))
-    (uuid f8d07b89-83e6-4096-ac08-2838174628f4)
-  )
-
-  (symbol (lib_id "generic:GND") (at 137.16 121.92 0) (unit 1)
-    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
-    (uuid 0ba034a9-96ee-4626-92bd-380413f41024)
-    (property "Reference" "#GND030" (at 140.97 120.65 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (property "Value" "GND" (at 140.97 121.92 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (property "Footprint" "" (at 137.16 121.92 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (property "Datasheet" "" (at 137.16 121.92 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (pin "~" (uuid c2c30552-4acb-4adc-868f-33621713e79f))
-    (instances
-      (project "pcb"
-        (path "/6bb3bad6-1a89-4624-b34d-6ddda7dd16d2/fdb1a2c0-3d58-431c-bfc9-dd28e6008cdb"
-          (reference "#GND030") (unit 1)
-        )
-      )
-    )
-  )
-
-  (symbol (lib_id "generic:GND") (at 157.48 121.92 0) (unit 1)
-    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
-    (uuid 1b006fac-0baf-4d7e-83de-9067b7756cde)
-    (property "Reference" "#GND029" (at 161.29 120.65 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (property "Value" "GND" (at 161.29 121.92 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (property "Footprint" "" (at 157.48 121.92 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (property "Datasheet" "" (at 157.48 121.92 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (pin "~" (uuid c830b16c-ad87-4cf6-9f64-f40615942bf7))
-    (instances
-      (project "pcb"
-        (path "/6bb3bad6-1a89-4624-b34d-6ddda7dd16d2/fdb1a2c0-3d58-431c-bfc9-dd28e6008cdb"
-          (reference "#GND029") (unit 1)
-        )
-      )
-    )
-  )
-
-  (symbol (lib_id "generic:R") (at 157.48 116.84 90) (unit 1)
-    (in_bom yes) (on_board yes) (dnp no)
-    (uuid 3a871a01-3993-465d-a085-e875d28682eb)
-    (property "Reference" "R15" (at 158.75 116.84 90)
-      (effects (font (size 1.27 1.27)) (justify right top))
-    )
-    (property "Value" "120R" (at 158.75 116.84 90)
-      (effects (font (size 1.27 1.27)) (justify right bottom))
-    )
-    (property "Footprint" "SMT:0603" (at 158.115 119.38 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (property "Datasheet" "" (at 157.48 116.84 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (pin "1" (uuid 6c43fca3-f74c-4d25-a034-d11213750777))
-    (pin "2" (uuid 4e84f440-8ab7-4ca8-9b41-142c4876689a))
-    (instances
-      (project "pcb"
-        (path "/6bb3bad6-1a89-4624-b34d-6ddda7dd16d2/fdb1a2c0-3d58-431c-bfc9-dd28e6008cdb"
-          (reference "R15") (unit 1)
-        )
-      )
-    )
-  )
-
-  (symbol (lib_id "generic:GND") (at 127 121.92 0) (unit 1)
-    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
-    (uuid 7e6f613d-f7c6-40e7-b1ea-0c6913e345e6)
-    (property "Reference" "#GND031" (at 130.81 120.65 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (property "Value" "GND" (at 130.81 121.92 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (property "Footprint" "" (at 127 121.92 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (property "Datasheet" "" (at 127 121.92 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (pin "~" (uuid 76c3b9c4-96e6-4a05-86b6-c6dd95c04d35))
-    (instances
-      (project "pcb"
-        (path "/6bb3bad6-1a89-4624-b34d-6ddda7dd16d2/fdb1a2c0-3d58-431c-bfc9-dd28e6008cdb"
-          (reference "#GND031") (unit 1)
-        )
-      )
-    )
-  )
-
-  (symbol (lib_id "generic:5V") (at 127 104.14 0) (unit 1)
-    (in_bom yes) (on_board yes) (dnp no)
-    (uuid 83dc42f7-c55e-47a1-9bdd-2fc49774b817)
-    (property "Reference" "#5V05" (at 130.81 102.87 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (property "Value" "5V" (at 127 101.6 0)
-      (effects (font (size 1.27 1.27)) (justify bottom))
-    )
-    (property "Footprint" "" (at 127 104.14 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (property "Datasheet" "" (at 127 104.14 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (pin "~" (uuid dd848b51-8479-46df-b9d2-3298463f2e3a))
-    (instances
-      (project "pcb"
-        (path "/6bb3bad6-1a89-4624-b34d-6ddda7dd16d2/fdb1a2c0-3d58-431c-bfc9-dd28e6008cdb"
-          (reference "#5V05") (unit 1)
-        )
-      )
-    )
-  )
-
-  (symbol (lib_id "serial:MCP2551") (at 147.32 106.68 0) (unit 1)
-    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
-    (uuid 8a287fe2-ceb7-4739-b6eb-c1952c46ad2d)
-    (property "Reference" "IC5" (at 147.32 96.52 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Value" "MCP2551" (at 147.32 99.06 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Footprint" "SOP:SO-8" (at 165.1 91.44 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (property "Datasheet" "https://ww1.microchip.com/downloads/en/DeviceDoc/20001667G.pdf" (at 165.1 91.44 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (property "MPN" "MCP2551T-I/SN" (at 165.1 91.44 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (property "Manufacturer" "Microchip" (at 165.1 91.44 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (property "DigiKey" "MCP2551T-I/SNCT-ND" (at 165.1 91.44 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (pin "1" (uuid fe7e4715-fd05-4d20-b9df-02bf9c70d234))
-    (pin "2" (uuid 19871cd5-3ae1-40b2-be08-dfe5c5d550df))
-    (pin "3" (uuid 33ef04e6-ea56-4f9c-8bdd-879bed7c6dbe))
-    (pin "4" (uuid 5393af63-8582-400e-b5d8-b3cba8365687))
-    (pin "5" (uuid 0183e975-8202-4ce6-a3b1-97ff71f2fe31))
-    (pin "6" (uuid b6521681-e65b-4a80-a616-a2d8e7129fd9))
-    (pin "7" (uuid 1c507876-5ba4-4215-8a0b-b52cfbf5bdec))
-    (pin "8" (uuid a4f5ea34-924a-4fd4-92b8-95341f803fc1))
-    (instances
-      (project "pcb"
-        (path "/6bb3bad6-1a89-4624-b34d-6ddda7dd16d2/fdb1a2c0-3d58-431c-bfc9-dd28e6008cdb"
-          (reference "IC5") (unit 1)
-        )
-      )
-    )
-  )
-
-  (symbol (lib_id "generic:C") (at 127 114.3 0) (unit 1)
-    (in_bom yes) (on_board yes) (dnp no)
-    (uuid cadb8b1f-ba5d-445d-8c31-6f721c1d9970)
-    (property "Reference" "C24" (at 128.27 114.3 0)
-      (effects (font (size 1.27 1.27)) (justify left bottom))
-    )
-    (property "Value" "100n" (at 128.27 114.3 0)
-      (effects (font (size 1.27 1.27)) (justify left top))
-    )
-    (property "Footprint" "SMT:0603" (at 127 116.84 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (property "Datasheet" "" (at 127 114.3 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (pin "1" (uuid bda8bc46-fb8d-4540-9246-e183a825e993))
-    (pin "2" (uuid 79973f5c-484b-4365-b7d6-01689db41c1a))
-    (instances
-      (project "pcb"
-        (path "/6bb3bad6-1a89-4624-b34d-6ddda7dd16d2/fdb1a2c0-3d58-431c-bfc9-dd28e6008cdb"
-          (reference "C24") (unit 1)
-        )
-      )
-    )
-  )
+(kicad_sch
+	(version 20231120)
+	(generator "eeschema")
+	(generator_version "8.0")
+	(uuid "701158e1-86be-4729-8e67-1557ad54e18d")
+	(paper "A4")
+	(title_block
+		(title "CAN bus to RC servo adapter")
+		(date "2024-05-21")
+		(rev "0")
+		(comment 1 "CAN bus interface")
+	)
+	(lib_symbols
+		(symbol "generic:5V"
+			(power)
+			(pin_numbers hide)
+			(pin_names
+				(offset 0) hide)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "#5V"
+				(at 3.81 1.27 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Value" "5V"
+				(at 0 3.81 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "5V_0_1"
+				(polyline
+					(pts
+						(xy 0 0) (xy 0 1.27) (xy -1.27 1.27) (xy 0 2.54) (xy 1.27 1.27) (xy 0 1.27)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "5V_1_1"
+				(pin power_in line
+					(at 0 0 90)
+					(length 2.54) hide
+					(name "5V"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+		)
+		(symbol "generic:C"
+			(pin_numbers hide)
+			(pin_names
+				(offset 0) hide)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "C"
+				(at 2.54 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "C"
+				(at 2.54 -2.54 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Footprint" "SMT:0603"
+				(at 0 -2.54 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "C_0_1"
+				(polyline
+					(pts
+						(xy -1.27 -0.254) (xy 1.27 -0.254)
+					)
+					(stroke
+						(width 0)
+						(type solid)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.27 0.254) (xy -1.27 0.254)
+					)
+					(stroke
+						(width 0)
+						(type solid)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "C_1_1"
+				(pin bidirectional line
+					(at 0 2.54 270)
+					(length 2.3114)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin bidirectional line
+					(at 0 -2.54 90)
+					(length 2.3114)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+		)
+		(symbol "generic:GND"
+			(power)
+			(pin_numbers hide)
+			(pin_names
+				(offset 0) hide)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "GND"
+				(at 3.81 1.27 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Value" "GND"
+				(at 3.81 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "GND_0_1"
+				(polyline
+					(pts
+						(xy -1.27 -1.27) (xy 1.27 -1.27)
+					)
+					(stroke
+						(width 0)
+						(type solid)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 -2.54) (xy 0 -2.54)
+					)
+					(stroke
+						(width 0)
+						(type solid)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 -1.27) (xy 0 0)
+					)
+					(stroke
+						(width 0)
+						(type solid)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0.635 -1.905) (xy -0.635 -1.905)
+					)
+					(stroke
+						(width 0)
+						(type solid)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "GND_1_1"
+				(pin power_in line
+					(at 0 0 270)
+					(length 2.54) hide
+					(name "GND"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+		)
+		(symbol "generic:R"
+			(pin_numbers hide)
+			(pin_names
+				(offset 0) hide)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "R"
+				(at 0 1.905 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "R"
+				(at 0 -2.54 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Footprint" "SMT:0603"
+				(at -2.54 -0.635 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "R_0_1"
+				(rectangle
+					(start -1.27 0.635)
+					(end 1.27 -0.635)
+					(stroke
+						(width 0)
+						(type solid)
+					)
+					(fill
+						(type background)
+					)
+				)
+			)
+			(symbol "R_1_1"
+				(pin bidirectional line
+					(at -2.54 0 0)
+					(length 1.27)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin bidirectional line
+					(at 2.54 0 180)
+					(length 1.27)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+		)
+		(symbol "serial:MCP2551"
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "IC"
+				(at 0 10.16 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "MCP2551"
+				(at 0 7.62 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" "SOP:SO-8"
+				(at 17.78 15.24 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "https://ww1.microchip.com/downloads/en/DeviceDoc/20001667G.pdf"
+				(at 17.78 15.24 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "MPN" "MCP2551T-I/SN"
+				(at 17.78 15.24 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Manufacturer" "Microchip"
+				(at 17.78 15.24 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "DigiKey" "MCP2551T-I/SNCT-ND"
+				(at 17.78 15.24 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "MCP2551_0_1"
+				(rectangle
+					(start 5.08 -6.35)
+					(end 5.08 -6.35)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "MCP2551_1_1"
+				(rectangle
+					(start -5.08 6.35)
+					(end 5.08 -6.35)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+				(pin input line
+					(at -7.62 5.08 0)
+					(length 2.54)
+					(name "TXD"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin power_out line
+					(at -7.62 -5.08 0)
+					(length 2.54)
+					(name "VSS"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at -7.62 0 0)
+					(length 2.54)
+					(name "VDD"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin output line
+					(at -7.62 2.54 0)
+					(length 2.54)
+					(name "RXD"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin output line
+					(at -7.62 -2.54 0)
+					(length 2.54)
+					(name "VREF"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "5"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin bidirectional line
+					(at 7.62 0 180)
+					(length 2.54)
+					(name "CANL"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "6"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin bidirectional line
+					(at 7.62 5.08 180)
+					(length 2.54)
+					(name "CANH"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "7"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin bidirectional line
+					(at 7.62 -5.08 180)
+					(length 2.54)
+					(name "RS"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "8"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+		)
+	)
+	(junction
+		(at 127 106.68)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "7efd8974-0849-4f57-b282-3964a0fe5227")
+	)
+	(wire
+		(pts
+			(xy 139.7 111.76) (xy 137.16 111.76)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "05cef6f9-ef26-4c95-a0d4-f99a05384e1e")
+	)
+	(wire
+		(pts
+			(xy 127 106.68) (xy 139.7 106.68)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "11082e31-2c47-4aef-ba73-1c58bb1c21cb")
+	)
+	(wire
+		(pts
+			(xy 154.94 101.6) (xy 165.1 101.6)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5aa7bcb1-2241-442c-9d42-c262ab419966")
+	)
+	(wire
+		(pts
+			(xy 154.94 106.68) (xy 165.1 106.68)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "637f4dd2-389a-490c-92c5-0bbc27f2feac")
+	)
+	(wire
+		(pts
+			(xy 154.94 111.76) (xy 157.48 111.76)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7d31a112-a1ea-4e14-ae6e-93f5fd370832")
+	)
+	(wire
+		(pts
+			(xy 137.16 101.6) (xy 139.7 101.6)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "81ee4388-4c4f-48e6-9a96-e7d642f25b06")
+	)
+	(wire
+		(pts
+			(xy 157.48 119.38) (xy 157.48 121.92)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9d905270-2c96-400f-b870-7d2c5af1dc79")
+	)
+	(wire
+		(pts
+			(xy 137.16 104.14) (xy 139.7 104.14)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "aa47fb84-99c0-43a5-a123-5192a1672f84")
+	)
+	(wire
+		(pts
+			(xy 127 116.84) (xy 127 121.92)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "af88f1cd-affd-4171-ac12-bf46d256ff1d")
+	)
+	(wire
+		(pts
+			(xy 137.16 111.76) (xy 137.16 121.92)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "be02b75d-17b4-4462-a258-0d2325eaea6e")
+	)
+	(wire
+		(pts
+			(xy 127 104.14) (xy 127 106.68)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "cbe6f11c-ee62-4bb4-a773-7a5fb6d58fc8")
+	)
+	(wire
+		(pts
+			(xy 127 106.68) (xy 127 111.76)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "dd3b1113-c22f-4b54-958f-aec9c92b950d")
+	)
+	(wire
+		(pts
+			(xy 157.48 111.76) (xy 157.48 114.3)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f6b47b56-4ee9-410a-83e3-99a4c8e67941")
+	)
+	(hierarchical_label "CAN_L"
+		(shape bidirectional)
+		(at 165.1 106.68 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "30db27d5-a5c9-4430-9aea-8d5f78502211")
+	)
+	(hierarchical_label "CAN_RX"
+		(shape output)
+		(at 137.16 104.14 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "88b77dca-0527-47ba-8cc7-9c91a9fb5afc")
+	)
+	(hierarchical_label "CAN_TX"
+		(shape input)
+		(at 137.16 101.6 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "c02818c4-e2d7-4801-a8f5-7438507200a5")
+	)
+	(hierarchical_label "CAN_H"
+		(shape bidirectional)
+		(at 165.1 101.6 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "f8d07b89-83e6-4096-ac08-2838174628f4")
+	)
+	(symbol
+		(lib_id "generic:GND")
+		(at 137.16 121.92 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "0ba034a9-96ee-4626-92bd-380413f41024")
+		(property "Reference" "#GND030"
+			(at 140.97 120.65 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 140.97 121.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Footprint" ""
+			(at 137.16 121.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 137.16 121.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 137.16 121.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "~"
+			(uuid "c2c30552-4acb-4adc-868f-33621713e79f")
+		)
+		(instances
+			(project "pcb"
+				(path "/6bb3bad6-1a89-4624-b34d-6ddda7dd16d2/fdb1a2c0-3d58-431c-bfc9-dd28e6008cdb"
+					(reference "#GND030")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "generic:GND")
+		(at 157.48 121.92 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "1b006fac-0baf-4d7e-83de-9067b7756cde")
+		(property "Reference" "#GND029"
+			(at 161.29 120.65 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 161.29 121.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Footprint" ""
+			(at 157.48 121.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 157.48 121.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 157.48 121.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "~"
+			(uuid "c830b16c-ad87-4cf6-9f64-f40615942bf7")
+		)
+		(instances
+			(project "pcb"
+				(path "/6bb3bad6-1a89-4624-b34d-6ddda7dd16d2/fdb1a2c0-3d58-431c-bfc9-dd28e6008cdb"
+					(reference "#GND029")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "generic:R")
+		(at 157.48 116.84 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "3a871a01-3993-465d-a085-e875d28682eb")
+		(property "Reference" "R15"
+			(at 158.75 116.84 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right top)
+			)
+		)
+		(property "Value" "120R"
+			(at 158.75 116.84 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right bottom)
+			)
+		)
+		(property "Footprint" "SMT:0603"
+			(at 158.115 119.38 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 157.48 116.84 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 157.48 116.84 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "6c43fca3-f74c-4d25-a034-d11213750777")
+		)
+		(pin "2"
+			(uuid "4e84f440-8ab7-4ca8-9b41-142c4876689a")
+		)
+		(instances
+			(project "pcb"
+				(path "/6bb3bad6-1a89-4624-b34d-6ddda7dd16d2/fdb1a2c0-3d58-431c-bfc9-dd28e6008cdb"
+					(reference "R15")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "generic:GND")
+		(at 127 121.92 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "7e6f613d-f7c6-40e7-b1ea-0c6913e345e6")
+		(property "Reference" "#GND031"
+			(at 130.81 120.65 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 130.81 121.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Footprint" ""
+			(at 127 121.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 127 121.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 127 121.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "~"
+			(uuid "76c3b9c4-96e6-4a05-86b6-c6dd95c04d35")
+		)
+		(instances
+			(project "pcb"
+				(path "/6bb3bad6-1a89-4624-b34d-6ddda7dd16d2/fdb1a2c0-3d58-431c-bfc9-dd28e6008cdb"
+					(reference "#GND031")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "generic:5V")
+		(at 127 104.14 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "83dc42f7-c55e-47a1-9bdd-2fc49774b817")
+		(property "Reference" "#5V05"
+			(at 130.81 102.87 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "5V"
+			(at 127 101.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+			)
+		)
+		(property "Footprint" ""
+			(at 127 104.14 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 127 104.14 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 127 104.14 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "~"
+			(uuid "dd848b51-8479-46df-b9d2-3298463f2e3a")
+		)
+		(instances
+			(project "pcb"
+				(path "/6bb3bad6-1a89-4624-b34d-6ddda7dd16d2/fdb1a2c0-3d58-431c-bfc9-dd28e6008cdb"
+					(reference "#5V05")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "serial:MCP2551")
+		(at 147.32 106.68 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "8a287fe2-ceb7-4739-b6eb-c1952c46ad2d")
+		(property "Reference" "IC5"
+			(at 147.32 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "MCP2551"
+			(at 147.32 99.06 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "SOP:SO-8"
+			(at 165.1 91.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://ww1.microchip.com/downloads/en/DeviceDoc/20001667G.pdf"
+			(at 165.1 91.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 147.32 106.68 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "MCP2551T-I/SN"
+			(at 165.1 91.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Microchip"
+			(at 165.1 91.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "DigiKey" "MCP2551T-I/SNCT-ND"
+			(at 165.1 91.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "fe7e4715-fd05-4d20-b9df-02bf9c70d234")
+		)
+		(pin "2"
+			(uuid "19871cd5-3ae1-40b2-be08-dfe5c5d550df")
+		)
+		(pin "3"
+			(uuid "33ef04e6-ea56-4f9c-8bdd-879bed7c6dbe")
+		)
+		(pin "4"
+			(uuid "5393af63-8582-400e-b5d8-b3cba8365687")
+		)
+		(pin "5"
+			(uuid "0183e975-8202-4ce6-a3b1-97ff71f2fe31")
+		)
+		(pin "6"
+			(uuid "b6521681-e65b-4a80-a616-a2d8e7129fd9")
+		)
+		(pin "7"
+			(uuid "1c507876-5ba4-4215-8a0b-b52cfbf5bdec")
+		)
+		(pin "8"
+			(uuid "a4f5ea34-924a-4fd4-92b8-95341f803fc1")
+		)
+		(instances
+			(project "pcb"
+				(path "/6bb3bad6-1a89-4624-b34d-6ddda7dd16d2/fdb1a2c0-3d58-431c-bfc9-dd28e6008cdb"
+					(reference "IC5")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "generic:C")
+		(at 127 114.3 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "cadb8b1f-ba5d-445d-8c31-6f721c1d9970")
+		(property "Reference" "C24"
+			(at 128.27 114.3 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Value" "100n"
+			(at 128.27 114.3 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(property "Footprint" "SMT:0603"
+			(at 127 116.84 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 127 114.3 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 127 114.3 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "bda8bc46-fb8d-4540-9246-e183a825e993")
+		)
+		(pin "2"
+			(uuid "79973f5c-484b-4365-b7d6-01689db41c1a")
+		)
+		(instances
+			(project "pcb"
+				(path "/6bb3bad6-1a89-4624-b34d-6ddda7dd16d2/fdb1a2c0-3d58-431c-bfc9-dd28e6008cdb"
+					(reference "C24")
+					(unit 1)
+				)
+			)
+		)
+	)
 )
