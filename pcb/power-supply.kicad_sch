@@ -173,7 +173,7 @@
 				)
 			)
 		)
-		(symbol "Power:AP62300TWU-7"
+		(symbol "Power:AP63301WU-7"
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
@@ -185,7 +185,7 @@
 					)
 				)
 			)
-			(property "Value" "AP62300TWU-7"
+			(property "Value" "AP63301"
 				(at 0 7.62 0)
 				(effects
 					(font
@@ -193,8 +193,8 @@
 					)
 				)
 			)
-			(property "Footprint" "SOT:SOT-23-6"
-				(at 8.636 3.556 0)
+			(property "Footprint" "TSOT:TSOT-26"
+				(at 4.318 15.494 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -202,8 +202,8 @@
 					(hide yes)
 				)
 			)
-			(property "Datasheet" "https://www.diodes.com/assets/Datasheets/AP62300_AP62301_AP62300T.pdf"
-				(at -3.81 5.08 0)
+			(property "Datasheet" "https://www.diodes.com/assets/Datasheets/AP63300-AP63301.pdf"
+				(at 6.604 12.954 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -211,8 +211,8 @@
 					(hide yes)
 				)
 			)
-			(property "Description" "4.2V TO 18V INPUT, 3A LOW IQ SYNCHRONOUS BUCK CONVERTER"
-				(at 0 0 0)
+			(property "Description" "3.8V TO 32V INPUT, 3A LOW IQ SYNCHRONOUS BUCK WITH ENHANCED EMI REDUCTION"
+				(at -1.524 12.954 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -220,8 +220,8 @@
 					(hide yes)
 				)
 			)
-			(property "MPN" "AP62300TWU-7"
-				(at 0 0 0)
+			(property "MPN" "AP63301WU-7"
+				(at 0.508 13.208 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -229,8 +229,8 @@
 					(hide yes)
 				)
 			)
-			(property "DigiKey" "31-AP62300TWU-7CT-ND"
-				(at 0 0 0)
+			(property "DigiKey" "31-AP63301WU-7CT-ND"
+				(at -1.27 13.462 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -239,7 +239,7 @@
 				)
 			)
 			(property "Manufacturer" "Diodes Incorporated"
-				(at 0 0 0)
+				(at 0 13.208 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -247,7 +247,7 @@
 					(hide yes)
 				)
 			)
-			(symbol "AP62300TWU-7_1_1"
+			(symbol "AP63301WU-7_1_1"
 				(rectangle
 					(start -5.08 6.35)
 					(end 5.08 -6.35)
@@ -259,10 +259,10 @@
 						(type background)
 					)
 				)
-				(pin power_in line
-					(at -7.62 5.08 0)
+				(pin input line
+					(at 7.62 -5.08 180)
 					(length 2.54)
-					(name "Vin"
+					(name "FB"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -270,60 +270,6 @@
 						)
 					)
 					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin power_out line
-					(at 7.62 0 180)
-					(length 2.54)
-					(name "SW"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin power_out line
-					(at -7.62 -5.08 0)
-					(length 2.54)
-					(name "GND"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin power_in line
-					(at 7.62 5.08 180)
-					(length 2.54)
-					(name "BST"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "4"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -341,6 +287,60 @@
 							)
 						)
 					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at -7.62 5.08 0)
+					(length 2.54)
+					(name "Vin"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin power_out line
+					(at -7.62 -5.08 0)
+					(length 2.54)
+					(name "GND"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin power_out line
+					(at 7.62 0 180)
+					(length 2.54)
+					(name "SW"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
 					(number "5"
 						(effects
 							(font
@@ -349,10 +349,10 @@
 						)
 					)
 				)
-				(pin input line
-					(at 7.62 -5.08 180)
+				(pin power_in line
+					(at 7.62 5.08 180)
 					(length 2.54)
-					(name "FB"
+					(name "BST"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -2377,39 +2377,6 @@
 			(justify left bottom)
 		)
 		(uuid "2e7d37ad-92d7-4187-a890-feefab12ca4e")
-	)
-	(text "changed feedback -> check voltage!"
-		(exclude_from_sim no)
-		(at 168.91 87.63 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "3d1be9a5-a72e-4685-ac4b-c4d992c3b4c3")
-	)
-	(text "18V abs max!!"
-		(exclude_from_sim no)
-		(at 146.05 87.63 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "4fb49f94-4dcd-463a-92f8-788c6ca73973")
-	)
-	(text "pinout wrong"
-		(exclude_from_sim no)
-		(at 147.32 85.09 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "7b65c77e-7454-4460-a4c1-2cb2648fa6b9")
 	)
 	(text "20V -> 3.3V"
 		(exclude_from_sim no)
@@ -5494,7 +5461,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Power:AP62300TWU-7")
+		(lib_id "Power:AP63301WU-7")
 		(at 152.4 99.06 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -5502,34 +5469,25 @@
 		(on_board yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "c9bf436b-6921-4583-8a87-679ae5af34ff")
+		(uuid "cd972ed6-839e-485d-862b-c6bb27d6d6f5")
 		(property "Reference" "IC4"
-			(at 152.4 88.9 0)
+			(at 152.4 87.63 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Value" "AP62300TWU-7"
-			(at 152.4 91.44 0)
+		(property "Value" "AP63301"
+			(at 152.4 90.17 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Footprint" "SOT:SOT-23-6"
-			(at 161.036 95.504 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://www.diodes.com/assets/Datasheets/AP62300_AP62301_AP62300T.pdf"
-			(at 148.59 93.98 0)
+		(property "Footprint" "TSOT:TSOT-26"
+			(at 156.718 83.566 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5537,8 +5495,8 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
-			(at 152.4 99.06 0)
+		(property "Datasheet" "https://www.diodes.com/assets/Datasheets/AP63300-AP63301.pdf"
+			(at 159.004 86.106 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5546,8 +5504,8 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "AP62300TWU-7"
-			(at 152.4 99.06 0)
+		(property "Description" "3.8V TO 32V INPUT, 3A LOW IQ SYNCHRONOUS BUCK WITH ENHANCED EMI REDUCTION"
+			(at 150.876 86.106 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5555,8 +5513,17 @@
 				(hide yes)
 			)
 		)
-		(property "DigiKey" "31-AP62300TWU-7CT-ND"
-			(at 152.4 99.06 0)
+		(property "MPN" "AP63301WU-7"
+			(at 152.908 85.852 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "DigiKey" "31-AP63301WU-7CT-ND"
+			(at 151.13 85.598 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5565,7 +5532,7 @@
 			)
 		)
 		(property "Manufacturer" "Diodes Incorporated"
-			(at 152.4 99.06 0)
+			(at 152.4 85.852 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5574,25 +5541,25 @@
 			)
 		)
 		(pin "1"
-			(uuid "83199fcd-ec96-43dd-b3ef-c7ca4e5b86c6")
+			(uuid "cdf83fe0-877f-4349-8b76-1deff9e1b1f3")
 		)
 		(pin "2"
-			(uuid "31454079-7651-476a-86ab-7345bd72fc0f")
+			(uuid "d0af8132-a3e4-4c5b-a8d2-0488cecfc6fd")
 		)
 		(pin "3"
-			(uuid "d14a6cff-085f-42aa-b82d-79e484012ebc")
-		)
-		(pin "4"
-			(uuid "6b9cc8cc-410b-4bf0-98ed-c9a5894e1e3b")
+			(uuid "af7279a3-524e-4d27-9abc-9a45f4b7c3dc")
 		)
 		(pin "5"
-			(uuid "cb838198-c0d4-41a1-bd47-b53f82595d0a")
+			(uuid "42f5ce07-ae38-439f-9a20-8244ab42d1b3")
+		)
+		(pin "4"
+			(uuid "1afbaca0-0102-4be8-b123-e5d32c91d763")
 		)
 		(pin "6"
-			(uuid "f12ac737-b84e-4ece-a851-b02fdbcba2a3")
+			(uuid "afa933a3-1d58-49e6-8ae8-3173b0c05bc7")
 		)
 		(instances
-			(project "pcb"
+			(project ""
 				(path "/6bb3bad6-1a89-4624-b34d-6ddda7dd16d2/bd5ce3a2-965f-4825-a529-9d15232fee93"
 					(reference "IC4")
 					(unit 1)
