@@ -40,7 +40,7 @@ measures voltage and current
 |current    | -10 A | 30 A |
 
 ## Firmware
-* `sudo ip link set up can0 type can bitrate 500000`  
+* can-utils: `sudo ip link set up can0 type can bitrate 500000`
 * All messages are `big-endian`. 
 * [python-can](https://python-can.readthedocs.io/en/stable/scripts.html) has great tools for debugging.
 * `cd firmware; make`
@@ -76,10 +76,17 @@ Provided node bridges firmware to ros topics.
 ### Installation
 1. Install [ROS2](https://docs.ros.org/en/jazzy/Installation.html)
 2. create [ros2_ws](https://docs.ros.org/en/jazzy/Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace.html)
-3. `ln -s ros2_can_rover ~/ros2_ws/src/can_rover`
-4. `cd ~/ros2_ws/`
-5. `colcon build`
-6. `ros2 run can_rover rover`
+```
+apt install python3-rosdep python3-colcon-common-extensions
+ln -s ros2_can_rover ~/ros2_ws/src/can_rover
+cd ~/ros2_ws/`
+colcon build`
+source install/setup.bash'
+rosdep init
+rosdep update
+rosdep install --from-paths src -y --ignore-src
+ros2 run can_rover can_rover
+```
 
 ### Servo channels
 defaulted to drive regular 180 degree servos.
@@ -89,8 +96,8 @@ defaulted to drive regular 180 degree servos.
 
 |parameter           |default |
 |--------------------|--------|
-|channel\_<n>\_scale |500     |
-|channel\_<n>\_offset|1500    |
+|channel\_n\_scale |500     |
+|channel\_n\_offset|1500    |
 
 ### Battery monitor
 
