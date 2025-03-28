@@ -3540,8 +3540,7 @@
 	)
 	(symbol
 		(lib_id "pin_headers:1x8")
-		(at 81.28 127 0)
-		(mirror y)
+		(at 81.28 129.54 180)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -3549,7 +3548,7 @@
 		(dnp no)
 		(uuid "02ecdcce-9c40-4bae-9506-713dfa9ce319")
 		(property "Reference" "CN8"
-			(at 78.74 116.84 0)
+			(at 78.74 139.7 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3558,7 +3557,7 @@
 			)
 		)
 		(property "Value" "1x8"
-			(at 81.28 116.84 0)
+			(at 81.28 139.7 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3567,7 +3566,7 @@
 			)
 		)
 		(property "Footprint" "pin_headers:1x8"
-			(at 81.28 119.38 0)
+			(at 81.28 137.16 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3576,7 +3575,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 81.28 124.46 0)
+			(at 81.28 132.08 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3585,7 +3584,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 81.28 127 0)
+			(at 81.28 129.54 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4023,8 +4022,7 @@
 	)
 	(symbol
 		(lib_id "pin_headers:1x8")
-		(at 68.58 127 0)
-		(mirror y)
+		(at 68.58 129.54 180)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -4032,7 +4030,7 @@
 		(dnp no)
 		(uuid "43c07ce2-74a2-4138-915d-3e523e1127a5")
 		(property "Reference" "CN12"
-			(at 66.04 116.84 0)
+			(at 66.04 139.7 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4041,7 +4039,7 @@
 			)
 		)
 		(property "Value" "1x8"
-			(at 68.58 116.84 0)
+			(at 68.58 139.7 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4050,7 +4048,7 @@
 			)
 		)
 		(property "Footprint" "pin_headers:1x8"
-			(at 68.58 119.38 0)
+			(at 68.58 137.16 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4059,7 +4057,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 68.58 124.46 0)
+			(at 68.58 132.08 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4068,7 +4066,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 68.58 127 0)
+			(at 68.58 129.54 0)
 			(effects
 				(font
 					(size 1.27 1.27)
