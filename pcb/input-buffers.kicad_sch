@@ -1631,7 +1631,7 @@
 		)
 		(uuid "13efd136-c518-483b-85da-48ba994619d4")
 	)
-	(hierarchical_label "IN_7"
+	(hierarchical_label "IN_2"
 		(shape output)
 		(at 210.82 116.84 0)
 		(effects
@@ -1642,7 +1642,7 @@
 		)
 		(uuid "227eba7b-d8df-4a2c-b0cf-f9c5da72033f")
 	)
-	(hierarchical_label "raw_5"
+	(hierarchical_label "raw_4"
 		(shape input)
 		(at 172.72 71.12 180)
 		(effects
@@ -1653,7 +1653,7 @@
 		)
 		(uuid "2b3df96b-2ffd-4b53-b118-db5d97afbe7f")
 	)
-	(hierarchical_label "raw_8"
+	(hierarchical_label "raw_1"
 		(shape input)
 		(at 172.72 139.7 180)
 		(effects
@@ -1664,7 +1664,7 @@
 		)
 		(uuid "40474723-1309-47ac-a864-bd0a71e7dd2d")
 	)
-	(hierarchical_label "IN_5"
+	(hierarchical_label "IN_4"
 		(shape output)
 		(at 210.82 71.12 0)
 		(effects
@@ -1675,7 +1675,7 @@
 		)
 		(uuid "5ff932e9-2d73-4f55-b121-96f95f49f7c5")
 	)
-	(hierarchical_label "IN_3"
+	(hierarchical_label "IN_6"
 		(shape output)
 		(at 139.7 116.84 0)
 		(effects
@@ -1686,7 +1686,7 @@
 		)
 		(uuid "617eaef0-adfb-441a-b7ce-322d990c619c")
 	)
-	(hierarchical_label "raw_3"
+	(hierarchical_label "raw_6"
 		(shape input)
 		(at 101.6 116.84 180)
 		(effects
@@ -1697,7 +1697,7 @@
 		)
 		(uuid "68ce31d6-25ce-4812-adc4-b583aea60aca")
 	)
-	(hierarchical_label "raw_1"
+	(hierarchical_label "raw_8"
 		(shape input)
 		(at 101.6 71.12 180)
 		(effects
@@ -1708,7 +1708,7 @@
 		)
 		(uuid "a21f47f4-f631-420b-bcd6-5d9741b3a2d7")
 	)
-	(hierarchical_label "raw_4"
+	(hierarchical_label "raw_5"
 		(shape input)
 		(at 101.6 139.7 180)
 		(effects
@@ -1719,7 +1719,7 @@
 		)
 		(uuid "b0b4bc9f-b1fe-4c80-95e3-e45e2fe0554b")
 	)
-	(hierarchical_label "raw_7"
+	(hierarchical_label "raw_2"
 		(shape input)
 		(at 172.72 116.84 180)
 		(effects
@@ -1741,7 +1741,7 @@
 		)
 		(uuid "d6b50851-15b4-46d9-9c38-923864e1b026")
 	)
-	(hierarchical_label "IN_4"
+	(hierarchical_label "IN_5"
 		(shape output)
 		(at 139.7 139.7 0)
 		(effects
@@ -1752,7 +1752,7 @@
 		)
 		(uuid "d96caa4c-32be-45ea-999e-9c92b65b4fdc")
 	)
-	(hierarchical_label "IN_2"
+	(hierarchical_label "IN_7"
 		(shape output)
 		(at 139.7 93.98 0)
 		(effects
@@ -1763,7 +1763,7 @@
 		)
 		(uuid "e99292e1-f4b4-4e34-bd90-3e20e0637f16")
 	)
-	(hierarchical_label "IN_8"
+	(hierarchical_label "IN_1"
 		(shape output)
 		(at 210.82 139.7 0)
 		(effects
@@ -1774,7 +1774,7 @@
 		)
 		(uuid "ecb09c49-5aa7-47a7-a30a-8b29b43de707")
 	)
-	(hierarchical_label "raw_2"
+	(hierarchical_label "raw_7"
 		(shape input)
 		(at 101.6 93.98 180)
 		(effects
@@ -1785,7 +1785,7 @@
 		)
 		(uuid "eda9eb5b-af4a-4f0f-999c-fe05b9a8ae14")
 	)
-	(hierarchical_label "IN_6"
+	(hierarchical_label "IN_3"
 		(shape output)
 		(at 210.82 93.98 0)
 		(effects
@@ -1796,7 +1796,7 @@
 		)
 		(uuid "f14455ad-4978-45b1-8362-990c57712bec")
 	)
-	(hierarchical_label "raw_6"
+	(hierarchical_label "raw_3"
 		(shape input)
 		(at 172.72 93.98 180)
 		(effects
@@ -1807,7 +1807,7 @@
 		)
 		(uuid "f4bff421-4f89-4536-9474-db58d8bf2507")
 	)
-	(hierarchical_label "IN_1"
+	(hierarchical_label "IN_8"
 		(shape output)
 		(at 139.7 71.12 0)
 		(effects
