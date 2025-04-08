@@ -338,110 +338,7 @@
 				)
 			)
 		)
-		(symbol "generic:R"
-			(pin_numbers hide)
-			(pin_names
-				(offset 0) hide)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "R"
-				(at 0 1.905 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" "R"
-				(at 0 -2.54 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Footprint" "SMT:0603"
-				(at -2.54 -0.635 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "R_0_1"
-				(rectangle
-					(start -1.27 0.635)
-					(end 1.27 -0.635)
-					(stroke
-						(width 0)
-						(type solid)
-					)
-					(fill
-						(type background)
-					)
-				)
-			)
-			(symbol "R_1_1"
-				(pin bidirectional line
-					(at -2.54 0 0)
-					(length 1.27)
-					(name "~"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin bidirectional line
-					(at 2.54 0 180)
-					(length 1.27)
-					(name "~"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-		)
-		(symbol "serial:MCP2551"
+		(symbol "serial:TCAN1057A-Q1"
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
@@ -453,7 +350,7 @@
 					)
 				)
 			)
-			(property "Value" "MCP2551"
+			(property "Value" "TCAN1057A-Q1"
 				(at 0 7.62 0)
 				(effects
 					(font
@@ -461,7 +358,7 @@
 					)
 				)
 			)
-			(property "Footprint" "SOP:SO-8"
+			(property "Footprint" "TSOT:TSOT-23-8"
 				(at 17.78 15.24 0)
 				(effects
 					(font
@@ -470,7 +367,7 @@
 					(hide yes)
 				)
 			)
-			(property "Datasheet" "https://ww1.microchip.com/downloads/en/DeviceDoc/20001667G.pdf"
+			(property "Datasheet" "https://www.ti.com/lit/ds/symlink/tcan1057a-q1.pdf"
 				(at 17.78 15.24 0)
 				(effects
 					(font
@@ -488,7 +385,7 @@
 					(hide yes)
 				)
 			)
-			(property "MPN" "MCP2551T-I/SN"
+			(property "MPN" "TCAN1057AVDDFRQ1"
 				(at 17.78 15.24 0)
 				(effects
 					(font
@@ -497,7 +394,7 @@
 					(hide yes)
 				)
 			)
-			(property "Manufacturer" "Microchip"
+			(property "Manufacturer" "Texas Instruments"
 				(at 17.78 15.24 0)
 				(effects
 					(font
@@ -506,7 +403,7 @@
 					(hide yes)
 				)
 			)
-			(property "DigiKey" "MCP2551T-I/SNCT-ND"
+			(property "DigiKey" "296-TCAN1057AVDDFRQ1CT-ND"
 				(at 17.78 15.24 0)
 				(effects
 					(font
@@ -515,7 +412,7 @@
 					(hide yes)
 				)
 			)
-			(symbol "MCP2551_0_1"
+			(symbol "TCAN1057A-Q1_0_1"
 				(rectangle
 					(start 5.08 -6.35)
 					(end 5.08 -6.35)
@@ -528,7 +425,7 @@
 					)
 				)
 			)
-			(symbol "MCP2551_1_1"
+			(symbol "TCAN1057A-Q1_1_1"
 				(rectangle
 					(start -5.08 6.35)
 					(end 5.08 -6.35)
@@ -612,24 +509,6 @@
 						)
 					)
 				)
-				(pin output line
-					(at -7.62 -2.54 0)
-					(length 2.54)
-					(name "VREF"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "5"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
 				(pin bidirectional line
 					(at 7.62 0 180)
 					(length 2.54)
@@ -666,10 +545,10 @@
 						)
 					)
 				)
-				(pin bidirectional line
+				(pin input line
 					(at 7.62 -5.08 180)
 					(length 2.54)
-					(name "RS"
+					(name "S"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -695,7 +574,7 @@
 	)
 	(wire
 		(pts
-			(xy 139.7 111.76) (xy 137.16 111.76)
+			(xy 139.7 111.76) (xy 138.43 111.76)
 		)
 		(stroke
 			(width 0)
@@ -735,7 +614,17 @@
 	)
 	(wire
 		(pts
-			(xy 154.94 111.76) (xy 157.48 111.76)
+			(xy 127 107.95) (xy 127 106.68)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6df72819-adcb-442d-b6a9-a8b41e26f54b")
+	)
+	(wire
+		(pts
+			(xy 156.21 111.76) (xy 154.94 111.76)
 		)
 		(stroke
 			(width 0)
@@ -755,16 +644,6 @@
 	)
 	(wire
 		(pts
-			(xy 157.48 119.38) (xy 157.48 121.92)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "9d905270-2c96-400f-b870-7d2c5af1dc79")
-	)
-	(wire
-		(pts
 			(xy 137.16 104.14) (xy 139.7 104.14)
 		)
 		(stroke
@@ -775,7 +654,7 @@
 	)
 	(wire
 		(pts
-			(xy 127 116.84) (xy 127 121.92)
+			(xy 127 113.03) (xy 127 114.3)
 		)
 		(stroke
 			(width 0)
@@ -785,7 +664,7 @@
 	)
 	(wire
 		(pts
-			(xy 137.16 111.76) (xy 137.16 121.92)
+			(xy 138.43 111.76) (xy 138.43 114.3)
 		)
 		(stroke
 			(width 0)
@@ -805,17 +684,7 @@
 	)
 	(wire
 		(pts
-			(xy 127 106.68) (xy 127 111.76)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "dd3b1113-c22f-4b54-958f-aec9c92b950d")
-	)
-	(wire
-		(pts
-			(xy 157.48 111.76) (xy 157.48 114.3)
+			(xy 156.21 111.76) (xy 156.21 114.3)
 		)
 		(stroke
 			(width 0)
@@ -869,7 +738,7 @@
 	)
 	(symbol
 		(lib_id "generic:GND")
-		(at 137.16 121.92 0)
+		(at 138.43 114.3 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -878,7 +747,7 @@
 		(fields_autoplaced yes)
 		(uuid "0ba034a9-96ee-4626-92bd-380413f41024")
 		(property "Reference" "#GND030"
-			(at 140.97 120.65 0)
+			(at 142.24 113.03 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -887,7 +756,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 140.97 121.92 0)
+			(at 142.24 114.3 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -896,7 +765,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 137.16 121.92 0)
+			(at 138.43 114.3 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -905,7 +774,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 137.16 121.92 0)
+			(at 138.43 114.3 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -914,7 +783,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 137.16 121.92 0)
+			(at 138.43 114.3 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -936,7 +805,7 @@
 	)
 	(symbol
 		(lib_id "generic:GND")
-		(at 157.48 121.92 0)
+		(at 156.21 114.3 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -945,7 +814,7 @@
 		(fields_autoplaced yes)
 		(uuid "1b006fac-0baf-4d7e-83de-9067b7756cde")
 		(property "Reference" "#GND029"
-			(at 161.29 120.65 0)
+			(at 160.02 113.03 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -954,7 +823,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 161.29 121.92 0)
+			(at 160.02 114.3 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -963,7 +832,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 157.48 121.92 0)
+			(at 156.21 114.3 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -972,7 +841,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 157.48 121.92 0)
+			(at 156.21 114.3 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -981,7 +850,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 157.48 121.92 0)
+			(at 156.21 114.3 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1002,77 +871,8 @@
 		)
 	)
 	(symbol
-		(lib_id "generic:R")
-		(at 157.48 116.84 90)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "3a871a01-3993-465d-a085-e875d28682eb")
-		(property "Reference" "R15"
-			(at 158.75 116.84 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right top)
-			)
-		)
-		(property "Value" "120R"
-			(at 158.75 116.84 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right bottom)
-			)
-		)
-		(property "Footprint" "SMT:0603"
-			(at 158.115 119.38 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 157.48 116.84 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 157.48 116.84 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "6c43fca3-f74c-4d25-a034-d11213750777")
-		)
-		(pin "2"
-			(uuid "4e84f440-8ab7-4ca8-9b41-142c4876689a")
-		)
-		(instances
-			(project "pcb"
-				(path "/6bb3bad6-1a89-4624-b34d-6ddda7dd16d2/fdb1a2c0-3d58-431c-bfc9-dd28e6008cdb"
-					(reference "R15")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "generic:GND")
-		(at 127 121.92 0)
+		(at 127 114.3 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -1081,7 +881,7 @@
 		(fields_autoplaced yes)
 		(uuid "7e6f613d-f7c6-40e7-b1ea-0c6913e345e6")
 		(property "Reference" "#GND031"
-			(at 130.81 120.65 0)
+			(at 130.81 113.03 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1090,7 +890,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 130.81 121.92 0)
+			(at 130.81 114.3 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1099,7 +899,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 127 121.92 0)
+			(at 127 114.3 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1108,7 +908,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 127 121.92 0)
+			(at 127 114.3 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1117,7 +917,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 127 121.92 0)
+			(at 127 114.3 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1204,7 +1004,7 @@
 		)
 	)
 	(symbol
-		(lib_id "serial:MCP2551")
+		(lib_id "serial:TCAN1057A-Q1")
 		(at 147.32 106.68 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -1214,22 +1014,22 @@
 		(fields_autoplaced yes)
 		(uuid "8a287fe2-ceb7-4739-b6eb-c1952c46ad2d")
 		(property "Reference" "IC5"
-			(at 147.32 96.52 0)
+			(at 147.32 95.25 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Value" "MCP2551"
-			(at 147.32 99.06 0)
+		(property "Value" "TCAN1057A-Q1"
+			(at 147.32 97.79 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Footprint" "SOP:SO-8"
+		(property "Footprint" "TSOT:TSOT-23-8"
 			(at 165.1 91.44 0)
 			(effects
 				(font
@@ -1238,7 +1038,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://ww1.microchip.com/downloads/en/DeviceDoc/20001667G.pdf"
+		(property "Datasheet" "https://www.ti.com/lit/ds/symlink/tcan1057a-q1.pdf"
 			(at 165.1 91.44 0)
 			(effects
 				(font
@@ -1256,7 +1056,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "MCP2551T-I/SN"
+		(property "MPN" "TCAN1057AVDDFRQ1"
 			(at 165.1 91.44 0)
 			(effects
 				(font
@@ -1265,7 +1065,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Microchip"
+		(property "Manufacturer" "Texas Instruments"
 			(at 165.1 91.44 0)
 			(effects
 				(font
@@ -1274,7 +1074,7 @@
 				(hide yes)
 			)
 		)
-		(property "DigiKey" "MCP2551T-I/SNCT-ND"
+		(property "DigiKey" "296-TCAN1057AVDDFRQ1CT-ND"
 			(at 165.1 91.44 0)
 			(effects
 				(font
@@ -1294,9 +1094,6 @@
 		)
 		(pin "4"
 			(uuid "5393af63-8582-400e-b5d8-b3cba8365687")
-		)
-		(pin "5"
-			(uuid "0183e975-8202-4ce6-a3b1-97ff71f2fe31")
 		)
 		(pin "6"
 			(uuid "b6521681-e65b-4a80-a616-a2d8e7129fd9")
@@ -1318,7 +1115,7 @@
 	)
 	(symbol
 		(lib_id "generic:C")
-		(at 127 114.3 0)
+		(at 127 110.49 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -1326,7 +1123,7 @@
 		(dnp no)
 		(uuid "cadb8b1f-ba5d-445d-8c31-6f721c1d9970")
 		(property "Reference" "C24"
-			(at 128.27 114.3 0)
+			(at 128.27 110.49 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1335,7 +1132,7 @@
 			)
 		)
 		(property "Value" "100n"
-			(at 128.27 114.3 0)
+			(at 128.27 110.49 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1344,7 +1141,7 @@
 			)
 		)
 		(property "Footprint" "SMT:0603"
-			(at 127 116.84 0)
+			(at 127 113.03 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1353,7 +1150,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 127 114.3 0)
+			(at 127 110.49 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1362,7 +1159,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 127 114.3 0)
+			(at 127 110.49 0)
 			(effects
 				(font
 					(size 1.27 1.27)

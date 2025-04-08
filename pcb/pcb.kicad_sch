@@ -3443,18 +3443,6 @@
 		)
 		(uuid "37bc9075-87ec-4a3f-8599-0bcd901921cb")
 	)
-	(text "check\norientation!!!"
-		(exclude_from_sim no)
-		(at 208.28 76.2 0)
-		(effects
-			(font
-				(size 3 3)
-				(color 255 0 56 1)
-			)
-			(justify left bottom)
-		)
-		(uuid "6ce1102a-aae2-4381-a56e-1e3e3edf1621")
-	)
 	(text "Termination selector"
 		(exclude_from_sim no)
 		(at 213.36 43.18 0)
@@ -6052,7 +6040,7 @@
 		(instances
 			(project "pcb"
 				(path "/6bb3bad6-1a89-4624-b34d-6ddda7dd16d2"
-					(page "23")
+					(page "7")
 				)
 			)
 		)
@@ -6546,7 +6534,7 @@
 		(instances
 			(project "pcb"
 				(path "/6bb3bad6-1a89-4624-b34d-6ddda7dd16d2"
-					(page "14")
+					(page "6")
 				)
 			)
 		)
